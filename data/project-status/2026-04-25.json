@@ -1,0 +1,150 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-04-25",
+  "captured_at": "2026-04-25T23:59:00-07:00",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 360,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts. Likely needs chip-variant-specific init (Linux r8169-style CPlusCmd + Config regs).",
+      "milestones_hit": [],
+      "blockers": [
+        "No PHY init (relying on BIOS leftover state — link=UP so not hard-blocking)",
+        "RTL8168 RX path: zero interrupts, no frames delivered"
+      ]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 12,
+      "handoff_excerpt": "Massive session 2026-03-31 to 2026-04-02. Fixed Indeed scraping (2 bugs), built ClaudioOS bare-metal port (3 new no_std crates, ~3,400 lines), HttpTransport trait + sevro-headless, head-to-head benchmarks vs Playwright, enterprise site polish.",
+      "milestones_hit": [
+        "ClaudioOS bare-metal port shipped (3 no_std crates)",
+        "Head-to-head benchmarks vs Playwright launched"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Kalshi Trader v7 (Pixie Dust)",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 8,
+      "commits_this_week": 35,
+      "lines_changed_today": 2438,
+      "lines_changed_this_week": 21249,
+      "handoff_excerpt": "No HANDOFF.md present. Active development on llm-proposer crate: prompt caching, 429 backoff, OAuth header fixes, A/B harness, scoping confidence to active model tier. Shipped llm-proposer 0.3.0 — shells out to `claude --print`, unlocks Opus 4.7.",
+      "milestones_hit": [
+        "llm-proposer 0.3.0 shipped (Opus 4.7 unlocked via claude --print)",
+        "Prompt caching + 429 backoff landed"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "typescript",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 12,
+      "handoff_excerpt": "Last updated 2026-04-11 SESSION 2 END — Orchestrator live, 30min poll + 2h scrape, sniper mode. Open thread: Priyasha S. client call status (Matt was scheduling manually at session end).",
+      "milestones_hit": [
+        "Orchestrator live (30min poll + 2h scrape, sniper mode)"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "typescript",
+      "commits_today": 1,
+      "commits_this_week": 3,
+      "lines_changed_today": 27533,
+      "lines_changed_this_week": 32455,
+      "handoff_excerpt": "Wire Intelligence ($19.99/mo) is now a real product, not a teaser. Five-module Ops Room live at /intel. War Room enriched with three new layers (econ shocks, conflict zones, intel-context sidebar, ECON-tagged ticker). Claude.ai-cookie sidecar active.",
+      "milestones_hit": [
+        "Wire Intelligence Ops Room shipped — Economy + Policy + Election + Conflicts",
+        "War Room overlays launched"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 0,
+      "commits_this_week": 0,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 0,
+      "handoff_excerpt": "PHASE 1 BUILDS ON SIMULATOR — TESTS AWAITING iMac POWER-CYCLE. PDFs converted to clean markdown. CLAUDE.md trimmed to 7.7K. Phase 1 Swift scaffold deployed to iMac, BUILD SUCCEEDED on iOS Simulator (iPhone 17 Pro, iOS 17+, Swift 6 strict).",
+      "milestones_hit": [
+        "Phase 1 Simulator build succeeded"
+      ],
+      "blockers": [
+        "iMac thermal crash mid-test-run; needs physical power cycle (OCLP/Haswell under heavy compile load)"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": "Seth Barone",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No CRM/Gmail connector available in this routine — contact dates not harvested. NDA signed, paid work TBD."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": "Cory Sturgis",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No CRM/Gmail connector available — contact dates not harvested. Active troubleshooting; no billing structure yet."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No CRM/Gmail connector available — contact dates not harvested."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No CRM/Gmail connector available — contact dates not harvested."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No CRM/Gmail connector available — contact dates not harvested."
+    }
+  ],
+  "strategic_events": [
+    { "date": "2026-04-25", "type": "milestone", "detail": "Wire Intelligence Ops Room shipped on The Right Wire ($19.99/mo, 5-module /intel surface)" },
+    { "date": "2026-04-25", "type": "milestone", "detail": "Kalshi llm-proposer 0.3.0 — Opus 4.7 unlocked via claude --print shell-out" }
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Routine ran from kokonoe (claude-code) — no Apple Health, Gmail, or Calendar connectors active. Health data and client contact dates are null. Project commits/lines harvested directly from local git repos. /j/fitness/ is not a git repo (intentional pre-Phase-1 state)."
+}

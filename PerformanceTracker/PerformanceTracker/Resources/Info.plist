@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundleDisplayName</key>
+    <string>Performance</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <false/>
+    </dict>
+    <key>UILaunchScreen</key>
+    <dict>
+        <key>UIColorName</key>
+        <string></string>
+    </dict>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UIUserInterfaceStyle</key>
+    <string>Dark</string>
+
+    <key>NSHealthShareUsageDescription</key>
+    <string>PerformanceTracker reads your Apple Health metrics (steps, HRV, resting heart rate, exercise, active calories, walking heart rate) on-device to compute your weekly performance grade. Your health data never leaves your device.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>PerformanceTracker does not write to Apple Health.</string>
+
+    <!--
+      App Transport Security
+      Phase 1: app makes ZERO network calls. HealthKit is on-device only.
+      Phase 2 will add HTTPS calls to Gmail + GitHub APIs (well-known endpoints).
+      Defaults are strict (HTTPS with strong ciphers, no arbitrary loads).
+      When Phase 2 is implemented, evaluate per-domain pinning for gmailapi.googleapis.com
+      and api.github.com via NSPinnedDomains (iOS 14+) rather than NSAllowsArbitraryLoads.
+    -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <key>NSAllowsLocalNetworking</key>
+        <false/>
+        <!--
+          Public key pinning (iOS 14+). CWE-296 mitigation.
+          Phase 1 has zero network calls; pins are placeholders.
+          Phase 2 MUST populate real SPKI-SHA256 hashes before enabling networking:
+             openssl s_client -connect api.github.com:443 -showcerts \
+               | openssl x509 -pubkey -noout \
+               | openssl pkey -pubin -outform der \
+               | openssl dgst -sha256 -binary \
+               | openssl enc -base64
+          Rotate at least one month before cert expiration. Pin the intermediate CA,
+          not the leaf, to survive leaf rotation.
+        -->
+        <key>NSPinnedDomains</key>
+        <dict>
+            <key>api.github.com</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <false/>
+                <!--
+                  Leaf identity pinning (CWE-272 least-privilege).
+                  Two pins required: one active, one backup for rotation.
+                -->
+                <key>NSPinnedLeafIdentities</key>
+                <array>
+                    <dict>
+                        <!-- TODO Phase 2: actual leaf SPKI hash for api.github.com -->
+                        <key>SPKI-SHA256-BASE64</key>
+                        <string>PLACEHOLDER_LEAF_PRIMARY_REPLACE_IN_PHASE_2</string>
+                    </dict>
+                    <dict>
+                        <!-- TODO Phase 2: backup leaf for cert rotation -->
+                        <key>SPKI-SHA256-BASE64</key>
+                        <string>PLACEHOLDER_LEAF_BACKUP_REPLACE_IN_PHASE_2</string>
+                    </dict>
+                </array>
+            </dict>
+            <key>gmail.googleapis.com</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <false/>
+                <key>NSPinnedLeafIdentities</key>
+                <array>
+                    <dict>
+                        <!-- TODO Phase 2: actual leaf SPKI hash for gmail.googleapis.com -->
+                        <key>SPKI-SHA256-BASE64</key>
+                        <string>PLACEHOLDER_LEAF_PRIMARY_REPLACE_IN_PHASE_2</string>
+                    </dict>
+                    <dict>
+                        <!-- TODO Phase 2: backup leaf for cert rotation -->
+                        <key>SPKI-SHA256-BASE64</key>
+                        <string>PLACEHOLDER_LEAF_BACKUP_REPLACE_IN_PHASE_2</string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>

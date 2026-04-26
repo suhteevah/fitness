@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundleDisplayName</key>
+    <string>Performance</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>WKApplication</key>
+    <true/>
+    <key>WKCompanionAppBundleIdentifier</key>
+    <string>com.ridgecellrepair.performancetracker</string>
+    <key>WKRunsIndependentlyOfCompanionApp</key>
+    <false/>
+    <key>UIUserInterfaceStyle</key>
+    <string>Dark</string>
+    <!--
+      Watch app has ZERO network calls in any phase — it communicates only with
+      the paired iPhone via WatchConnectivity (local transport, no TCP/IP).
+      Pin configuration mirrors the iOS app as defense-in-depth in case future
+      versions add HTTP clients. Leaf identity pinning per CWE-272.
+    -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <key>NSAllowsLocalNetworking</key>
+        <false/>
+        <key>NSPinnedDomains</key>
+        <dict>
+            <key>api.github.com</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <false/>
+                <key>NSPinnedLeafIdentities</key>
+                <array>
+                    <dict>
+                        <!-- TODO: if Watch ever calls HTTP, populate real leaf SPKI -->
+                        <key>SPKI-SHA256-BASE64</key>
+                        <string>PLACEHOLDER_LEAF_PRIMARY_UNUSED_ON_WATCH</string>
+                    </dict>
+                    <dict>
+                        <key>SPKI-SHA256-BASE64</key>
+                        <string>PLACEHOLDER_LEAF_BACKUP_UNUSED_ON_WATCH</string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>

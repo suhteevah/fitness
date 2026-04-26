@@ -1,0 +1,150 @@
+name: PerformanceTracker
+options:
+  bundleIdPrefix: com.ridgecellrepair
+  deploymentTarget:
+    iOS: "17.0"
+    watchOS: "10.0"
+  developmentLanguage: en
+  xcodeVersion: "16.0"
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: PVDSP4G3L4
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    GENERATE_INFOPLIST_FILE: NO
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  PerformanceTracker:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: PerformanceTracker
+        excludes:
+          - Resources/Info.plist
+          - Resources/PerformanceTracker.entitlements
+      - path: Shared
+    resources:
+      - PerformanceTracker/Assets.xcassets
+    # NOTE: do NOT add an `info:` block here. xcodegen treats `info:` as
+    # "I will generate this Info.plist" and OVERWRITES the hand-crafted one
+    # on every regen, stripping NSHealthShareUsageDescription and aborting
+    # the app at HealthKit auth on iOS 26. We rely on INFOPLIST_FILE below
+    # to point at the existing source file instead.
+    entitlements:
+      path: PerformanceTracker/Resources/PerformanceTracker.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ridgecellrepair.performancetracker
+        INFOPLIST_FILE: PerformanceTracker/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: PerformanceTracker/Resources/PerformanceTracker.entitlements
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: NO
+    # Watch dependency temporarily removed: actool fails on this iMac because
+    # the watchOS simulator runtime was purged and won't redownload reliably.
+    # Re-enable once `xcrun simctl list runtimes` shows watchOS available.
+    # dependencies:
+    #   - target: PerformanceTrackerWatch
+
+  PerformanceTrackerWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: "10.0"
+    sources:
+      - path: PerformanceTrackerWatch
+        excludes:
+          - Resources/Info.plist
+          - Resources/PerformanceTrackerWatch.entitlements
+      - path: Shared
+    resources:
+      - PerformanceTrackerWatch/Assets.xcassets
+    # Defining info.properties here forces xcodegen to write the watch keys
+    # deterministically every regen — without this, the Info.plist on disk
+    # has been silently stripped of WKApplication between builds, breaking install.
+    info:
+      path: PerformanceTrackerWatch/Resources/Info.plist
+      properties:
+        CFBundleDevelopmentRegion: en
+        CFBundleDisplayName: Performance
+        CFBundleShortVersionString: 1.0
+        CFBundleVersion: "1"
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: com.ridgecellrepair.performancetracker
+        WKRunsIndependentlyOfCompanionApp: false
+        UIUserInterfaceStyle: Dark
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: false
+          NSAllowsLocalNetworking: false
+    entitlements:
+      path: PerformanceTrackerWatch/Resources/PerformanceTrackerWatch.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ridgecellrepair.performancetracker.watchkitapp
+        INFOPLIST_FILE: PerformanceTrackerWatch/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: PerformanceTrackerWatch/Resources/PerformanceTrackerWatch.entitlements
+        TARGETED_DEVICE_FAMILY: "4"
+        WATCHOS_DEPLOYMENT_TARGET: "10.0"
+        # Skip simulator slice generation — this iMac doesn't have watchsim runtimes
+        # available and actool fails when it tries to enumerate them. We deploy to
+        # a real Watch Ultra 3, not simulator.
+        ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT: "YES"
+        ENABLE_PREVIEWS: "NO"
+
+  # macOS host test target — pure-logic tests run directly on iMac CPU.
+  # iOS Simulator is unusable on this OCLP/Haswell iMac (kernel-panics on boot).
+  # We deploy directly to iPhone 17 Pro Max + Watch Ultra 3 for real-device QA.
+  PerformanceTrackerHostTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - Tests
+      # Cross-platform Shared/ — Grade, Category, WorkoutProfile, MealTemplate,
+      # HealthDaily, ProjectStatus, WatchMessage. Grade.swift uses SwiftUI.Color
+      # which is fine on macOS 14+. Skip if it ever drags in iOS-only API.
+      - path: Shared
+      # Pure-logic models (SwiftData @Model is macOS 14+ ✅)
+      - path: PerformanceTracker/Models
+      # Pure-logic services (no HealthKit / no UIKit)
+      - path: PerformanceTracker/Services
+        excludes:
+          - HealthKitService.swift   # iOS-only import HealthKit
+          - AssessmentEngine.swift   # transitively depends on HealthKitService
+          - DailyDataLoader.swift    # references Log + iOS Bundle layout
+      - path: PerformanceTracker/Persistence
+        excludes:
+          - DataController.swift     # references full ModelContainer setup; tests build their own in-memory
+      - path: PerformanceTracker/Utilities
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ridgecellrepair.performancetracker.hosttests
+        GENERATE_INFOPLIST_FILE: YES
+        # Different module name — tests can `@testable import PerformanceTrackerHostTests`
+        # if needed, but they currently use PerformanceTracker module which only
+        # exists on iOS. Use direct file inclusion — types are at file level.
+
+schemes:
+  PerformanceTracker:
+    build:
+      targets:
+        PerformanceTracker: all
+        # PerformanceTrackerWatch: all   # disabled until watchOS sim runtime is available
+    run:
+      config: Debug
+    archive:
+      config: Release
+
+  PerformanceTrackerHost:
+    build:
+      targets:
+        PerformanceTrackerHostTests: [test]
+    test:
+      targets:
+        - PerformanceTrackerHostTests
+    run:
+      config: Debug

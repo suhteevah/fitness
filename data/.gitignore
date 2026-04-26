@@ -1,0 +1,14 @@
+# Privacy — never commit real personal health data to a public fork.
+# Meal-plan templates (dietary *structure*) are fine to track; daily health/project
+# status files contain personal detail and shouldn't live in a public repo.
+#
+# In this private repo we KEEP them tracked for the app to load.
+# If you fork this repo publicly, uncomment the next two lines:
+#
+#   health-daily/
+#   project-status/
+
+# Backup/intermediate files
+*.bak
+*.tmp
+.DS_Store

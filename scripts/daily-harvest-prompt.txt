@@ -1,0 +1,25 @@
+PerformanceTracker daily harvest for Matt Gates.
+
+Resolve today's date in local time (Chico CA) — call it $DATE in YYYY-MM-DD form. Reference: /j/fitness/data/ROUTINE-PROMPT.md and /j/fitness/docs/DAILY-DATA-ROUTINE.md for the exact contract. The Swift schema you must match is in /j/fitness/PerformanceTracker/Shared/HealthDaily.swift.
+
+STEP 1 — Health harvest
+Use the Apple Health / HealthKit connector active in your Claude session. Pull data for $DATE: steps, active_kcal, basal_kcal, resting_hr_bpm, hrv_sdnn_ms, exercise_min, walking_hr_bpm, respiratory_rate_bpm, blood_o2_pct, vo2max_ml_kg_min, weight_lb, sleep (duration_hours, bedtime, wake_time, stages.awake_min, stages.core_min, stages.deep_min, stages.rem_min). Use null when unavailable — never 0. Workouts and meals_logged arrays optional.
+
+STEP 2 — Project status harvest
+Walk these dirs and extract today's git activity + HANDOFF.md deltas:
+  /j/baremetal claude/   /j/wraith-browser/   /j/kalshi-trader-v7/   /j/job-hunter-mcp/   /j/political news app/   /j/fitness/   any other J:\ dir with CLAUDE.md or HANDOFF.md.
+For each: commits_today, commits_this_week, lines_changed_today, lines_changed_this_week, handoff_excerpt, milestones_hit[], blockers[].
+Clients block: Incognito Acquisitions, First Choice Plastics, Midnight Munitions, Halsey Bottling, Compac Engineering — capture lastDeliverableDate, lastContactDate, daysSinceContact, invoiceTotalThisPeriodUSD.
+
+STEP 3 — Write outputs
+Create dirs if missing:  J:\fitness\data\health-daily\  and  J:\fitness\data\project-status\
+Write:
+  J:\fitness\data\health-daily\$DATE.json   (schema: health-daily.v1)
+  J:\fitness\data\project-status\$DATE.json (schema: project-status.v1)
+Match snake_case keys from HealthDaily.swift exactly. Preserve integer vs float types. Set captured_at to current ISO8601 datetime, source to "claude-routine-v1".
+
+STEP 4 — Telegram summary
+Post via:
+  bash "/j/baremetal claude/tools/notify-telegram.sh" "PT daily $DATE — HRV: ... | Sleep: ... | Training: ... | Top commit: ... | Client: ... | Flags: ..."
+
+Prepend "ALERT:" if HRV dropped >15% vs 7-day rolling average, sleep <6h, or any client has >7 days since contact. If a metric is null because the connector returned nothing, say so explicitly. Run end-to-end autonomously, no follow-up questions.

@@ -1,0 +1,28 @@
+{
+  "schema": "health-daily.v1",
+  "date": "2026-04-25",
+  "captured_at": "2026-04-25T17:30:00-07:00",
+  "source": "claude-ai-routine-v1-test",
+  "health": {
+    "steps": 6420,
+    "active_kcal": 412,
+    "basal_kcal": 1985,
+    "resting_hr_bpm": 58,
+    "hrv_sdnn_ms": 84.2,
+    "exercise_min": 38,
+    "walking_hr_bpm": 102,
+    "respiratory_rate_bpm": 14.6,
+    "blood_o2_pct": 98,
+    "vo2max_ml_kg_min": 41.2,
+    "weight_lb": 196.4,
+    "sleep": {
+      "duration_hours": 7.4,
+      "bedtime": "2026-04-24T23:18:00-07:00",
+      "wake_time": "2026-04-25T06:42:00-07:00",
+      "stages": {"awake_min": 22, "core_min": 248, "deep_min": 84, "rem_min": 90}
+    },
+    "workouts": null,
+    "meals_logged": null
+  },
+  "notes": "Synthetic test record to validate the puller pipeline. Replace with real claude.ai routine output."
+}

@@ -1,0 +1,910 @@
+CLAUDE.md -- Weekly Performance Reporter +
+iOS/Watch App
+
+Project: PerformanceTracker (working name)
+
+Owner: Matt Gates, Ridge Cell Repair LLC, Chico
+CA
+
+GitHub: suhteevah | Email:
+ridgecellrepair@gmail.com | Phone: (530) 786-
+3655
+
+WHAT THIS IS
+
+A system that automates the graded weekly performance assessments that Matt and
+Claude have been doing manually since February 2026. It pulls data from multiple
+sources (Apple Health, Gmail, GitHub, Google Calendar, Claude conversation history),
+scores each category using a defined rubric, compares period-over-period, and delivers
+the report via an iOS app with an Apple Watch companion.
+
+This is NOT a generic fitness tracker or productivity app. It is a deeply personalized
+performance assessment engine built around Matt's specific life situation, business
+(Ridge Cell Repair LLC), technical projects, and health goals.
+
+ARCHITECTURE OVERVIEW
+
+
+
+  iOS App (SwiftUI)          
+
+    
+
+  Dashboard   Category   Historical  
+
+  (Overall   Detail   Trend  
+  Grade)   Views   Charts                  
+
+    
+
+                                             
+
+  
+
+          HealthKit Integration            
+
+        (direct on-device, no API needed)  
+
+  
+
+
+
+             REST API
+
+
+
+          Backend API (Rust + Axum)          
+
+    
+
+  Gmail   GitHub   Assessment  
+
+  Scanner   Scanner   Engine               
+
+    
+
+    
+
+  Calendar   Anthropic  Grading            
+
+  Scanner   API (opt)  Rubric              
+
+    
+
+
+
+            
+
+          
+
+           SQLite DB 
+
+           (local-first)
+
+          
+
+
+
+          Apple Watch App (SwiftUI)          
+
+    
+
+  Grade Ring   Health   Quick              
+
+  Complica-   Summary   Actions            
+
+  tion                      (log walk)  
+
+    
+
+
+
+DATA SOURCES AND HOW TO ACCESS THEM
+
+1. Apple Health (HealthKit -- on-device)
+
+Access method: HealthKit framework, directly on iOS. No API needed. Watch sends
+health data to iPhone via WatchConnectivity.
+Metrics to query (weekly aggregation):
+Metric      HealthKit Identifier                         Stat        Unit
+                                                         Type
+
+Steps       HKQuantityTypeIdentifier.stepCount           sum         count
+
+Active      HKQuantityTypeIdentifier.activeEnergyBurned  sum         kcal
+Calories
+
+Resting     HKQuantityTypeIdentifier.restingHeartRate    average count/min
+Heart
+Rate
+
+HRV         HKQuantityTypeIdentifier.heartRateVariabilitySDNN average ms
+(SDNN)
+
+Exercise    HKQuantityTypeIdentifier.appleExerciseTime   sum         min
+Minutes
+
+Walking     HKQuantityTypeIdentifier.walkingHeartRateAverage average count/min
+Heart
+Rate
+
+Basal       HKQuantityTypeIdentifier.basalEnergyBurned   sum         kcal
+Energy
+
+Historical baselines (from actual Apple Health data across 3 assessment
+periods):
+
+Metric          P1 Baseline       P2 Low                P3 Recovery  Target
+                (Feb)             (Mar)                 (Apr)
+Steps/day       ~7,800            ~4,700                ~4,900       7,500+
+Active Cal/day  ~640              ~347                  ~470         600+
+Resting HR      66 bpm            73 bpm                60-66 bpm    <65 bpm
+HRV             57 ms             42 ms                 68-86 ms     >60 ms
+Exercise
+Min/wk          ~50               13 (crisis)           20-86        >150
+
+Walking HR      ~107 bpm          117 bpm               97-112 bpm   <110
+                                                                     bpm
+2. Gmail (ridgecellrepair@gmail.com)
+
+Access method: Gmail API (OAuth 2.0) or Gmail MCP server
+(https://gmailmcp.googleapis.com/mcp/v1)
+Queries to run weekly:
+
+   # Job application confirmations (Greenhouse/Lever/Ashby)
+   subject:"thank you for applying" OR subject:"application received" OR subject:"security code
+
+   # Rejections
+   subject:"not move forward" OR subject:"decided not" OR subject:"unfortunately" OR subject:"ot
+
+   # Interview invitations
+   subject:"interview" OR subject:"next steps" OR subject:"phone screen" OR subject:"schedule a
+
+   # Client communications
+   from:fiverr.com OR subject:invoice OR subject:payment OR from:stripe.com
+
+   # Revenue signals
+   from:paypal OR from:venmo OR subject:"payment received" OR from:kalshi
+
+Important: Matt also uses mmichels88@gmail.com for some job applications (WinCo,
+Hudson Manpower). If possible, scan both inboxes. The mmichels88 account is NOT
+connected to Gmail MCP -- would need separate OAuth.
+Known email patterns:
+
+     Job Hunter agent generates Greenhouse security codes that auto-resolve
+     Agent-drafted Upwork replies are signed "-a ridgecell" and may sit in Drafts
+     Fiverr messages have been 100% scammers -- flag but don't count as client comms
+     Upwork burned ~200 connects for 0 contacts after Jake Brander
+
+3. GitHub (suhteevah)
+
+Access method: GitHub REST API v3 or GraphQL API v4. Public repos are
+unauthenticated. Private repos need a PAT.
+Metrics to collect weekly:
+
+   # Contribution count for the week
+   GET /users/suhteevah/events (filter by date range)
+
+   # Repository count and recently updated
+GET /users/suhteevah/repos?sort=updated&per_page=100
+
+# Commit activity per repo
+GET /repos/suhteevah/{repo}/commits?since={week_start}&until={week_end}
+
+# New repos created this week
+Filter repos by created_at within assessment period
+
+Key repos to track (as of April 2026):
+
+Repo                   Status Language Lines        Significance
+
+claudioos (private?)   Active Rust         294,710  Bare-metal Rust OS --
+                                                    flagship
+
+wraith-browser (private) Active Rust       27,000+  AI agent browser --
+                                                    commercial product
+
+kalshi-weather-trader  Active  JavaScript  Unknown  Prediction market bot
+(private)                                           -- 20x returns
+
+kalshi-trader-v7       Active Rust         Unknown  Rust rewrite of Kalshi
+(private)                                           trader
+
+openclaw-admin-mcp     Active Rust         6,241    Fleet admin MCP
+(private?)                                          server
+
+docsync                Public Shell        Small    Doc drift detection --
+                                                    2 stars
+
+depguard               Public Shell        Small    Dependency audit tool
+
+mpvhq-win64            Public GLSL         Legacy   mpv build -- 7 stars
+
+Important: Many key repos are private. The public GitHub profile undersells Matt's
+actual output. The assessment must note when it can only see public activity.
+
+4. Google Calendar
+
+Access method: Google Calendar API or Calendar MCP server
+(https://calendarmcp.googleapis.com/mcp/v1)
+
+What to check: Any scheduled events in the assessment period. Historically this has
+been empty -- which is itself a grading signal (negative for Time Management).
+5. Claude Conversation History (optional, future)
+
+Access method: Claude conversation search API (if available), or manual summary
+injection
+What to extract: Topics covered, projects worked on, client deliverables created, time
+distribution across work categories
+
+6. Subject-Reported Data (manual input via iOS app)
+
+Some data can't be automated and Matt will input manually:
+     Revenue received (amount, source, client)
+     Client meetings held
+     Meals followed from plan (yes/no daily toggle)
+     Workout completed (yes/no + type)
+     Kalshi trader P&L (weekly snapshot)
+     Hours worked estimate
+
+GRADING RUBRIC
+
+Categories (7 total + Overall)
+
+Each category is graded on a standard letter scale: A+, A, A-, B+, B, B-, C+, C, C-, D+, D,
+D-, F
+
+Numeric equivalents for averaging: A+=4.3, A=4.0, A-=3.7, B+=3.3, B=3.0, B-=2.7,
+C+=2.3, C=2.0, C-=1.7, D+=1.3, D=1.0, D-=0.7, F=0.0
+
+Overall grade = weighted average of category grades (see weights below)
+
+1. Product Development (Weight: 25%)
+
+Measures: code output, project scope, technical ambition, test coverage,
+documentation quality
+
+Grade  Criteria
+A+     Shipped 10K+ lines of production code OR completed a full product launch
+A      Shipped significant features, 5K+ lines, tests passing
+A-     Good output, some gaps in tests or docs
+
+B+     Solid work, 2K-5K lines, forward progress on key projects
+
+B      Steady progress, smaller scope
+
+C      Minimal progress, mostly maintenance
+
+D      Scattered output, nothing shipped
+
+F      No development activity
+
+Matt-specific context: ClaudioOS, Wraith Browser, Kalshi trader, OpenClaw
+ecosystem, and client tools (CAD extraction, injection molding skill) are the products to
+track. He builds in Rust primarily, with some TypeScript/Python/Shell.
+
+2. Revenue & Pipeline (Weight: 20%)
+
+Measures: money received, invoices sent, pipeline value, client engagement activity
+
+Grade  Criteria
+A      $2,000+ received OR multiple active paying clients
+B      $500-$2,000 received OR strong pipeline with signed contracts
+C      <$500 OR active client work without billing
+D      No revenue, pipeline activity only
+F      No revenue, no pipeline activity
+
+Matt-specific context:
+     Jake Brander paid $550 for Vox Spectre (first product revenue, from Upwork
+     originally)
+     Kalshi trader up 20x with 4 beta testers (track P&L weekly)
+     Fiverr = 100% scammers, do not count as pipeline
+     Upwork = ~200 connects burned, 0 contacts after Jake
+     Wraith Browser enterprise pricing: $497-$2,997/mo
+     Key clients: Jake Brander (Brander Group), Seth Barone (Incognito Acquisitions),
+     Cory Sturgis (First Choice Plastics), Christian Anderson (Midnight Munitions), Greg
+     Jones (Compac Engineering)
+
+3. Job Hunting (Weight: 15%)
+
+Measures: applications submitted, application quality/fit, interview callbacks, offers
+
+Grade  Criteria
+A      Interview callbacks received OR offer(s)
+A-     High volume + well-targeted applications
+B      Good volume, mostly relevant roles
+C      Low volume OR poorly targeted roles
+D      Minimal activity
+F      No job search activity
+
+Matt-specific context:
+
+     Job Hunter agent + Wraith Browser = 6,000+ total applications
+
+     Target roles: Senior/Staff SWE, AI Engineer, MLOps, QA Engineering, DevOps
+
+     Non-target roles to flag: geographic mismatches (Korea, APAC), functional
+     mismatches (Product Designer, People Business Partner, Account Executive non-
+     tech)
+
+     Key applications: Anthropic, OpenAI, GitLab, Vercel, Discord, Figma, Tailscale,
+     Chainguard, ClickHouse, PlanetScale, PagerDuty, LaunchDarkly, Netlify, Airtable
+
+     Censys = rejected same-day (normal at volume)
+
+     WinCo Foods (Sr Middleware Developer Phoenix) and Hudson Manpower (GenAI/ML
+     Data Scientist) also in pipeline
+
+     LinkedIn headline: "AI/LLM Infrastructure Engineer | MCP Server Builder | Python &
+     Rust | DevOps & QA Automation"
+
+4. Client Work (Weight: 15%)
+
+Measures: deliverables shipped, client communications, invoices sent, client
+satisfaction
+Grade  Criteria
+A      Multiple deliverables shipped + invoiced
+B      Deliverables shipped, light on invoicing
+C      Active engagement but thin on deliverables
+D      No visible client deliverables
+F      No client activity
+
+Matt-specific clients and active engagements:
+
+     Incognito Acquisitions (Seth Barone, Virginia Beach): CAD measurement
+     extraction tool (DXF/SVG/STEP/PDF  LightBurn + Cricut), ITAR-adjacent NDA
+     signed, Wraith Browser gratis license. Products: PEQ-15, MAWL, LA5 tactical
+     accessories.
+
+     First Choice Plastics (Cory Sturgis, Oroville CA): Injection molding support,
+     Shibaura EC85SXIII-2A troubleshooting, skill installed. Diagnosed LS32 eject
+     retraction alarm, flagged MIN-CUSH=0.000, identified overdue PM cycles.
+
+     Midnight Munitions (Christian Anderson, Nephi UT): NAS3 ammunition,
+     veteran-owned. Technical content review (SBR load development article).
+
+     Halsey Bottling (Napa CA): Mobile wine bottling. Status unclear.
+
+     Compac Engineering (Greg Jones, Paradise CA): Industrial sensors. Status
+     unclear.
+
+5. Physical Health (Weight: 10%)
+
+Measures: HealthKit metrics vs baselines and targets, exercise consistency, meal plan
+adherence
+
+Grade  Criteria
+A      All metrics improving, exercise consistent, meal plan followed
+B      Most metrics stable/improving, some exercise, meal plan followed
+C      Metrics mixed, sporadic exercise
+D      Metrics declining, minimal exercise
+F      All metrics declining, no exercise, diet abandoned
+Matt-specific health context:
+     Diet: keto, animal-based, no pork. Shops at Safeway and Raley's in Chico.
+     Meal plans created with Claude -- Matt has been rotating them and sticking to them
+     rock solid
+     Apple Fitness+ subscription (has workout plans, not always following them)
+     Goal: muscle gain + cardiovascular endurance (shifted from weight loss)
+     Weight: 196 lbs (last reported)
+     Calorie target: 2,200 kcal/day for muscle building
+     TDEE: ~2,840 kcal/day
+     HRV is the most important health metric -- it was in crisis at 42ms, recovered to
+     86ms through nutrition alone
+     Zone 2 cardio target: 114-133 bpm sustained
+
+6. Time Management & Focus (Weight: 10%)
+
+Measures: calendar usage, project focus vs scatter, context switching, recreation during
+crisis
+
+Grade  Criteria
+A      Calendar blocked, focused on 2-3 tracks, minimal recreation waste
+B      Good focus, some calendar structure, minor diversions
+C      Moderate scatter, no calendar, some recreation projects
+D      High scatter, 5+ unrelated tracks, significant recreation during crisis
+F      Complete scatter, no productive output
+
+Matt-specific context:
+     Calendar has historically been completely empty -- this is a persistent issue
+     Factorio (~20K hours total, Space Age completed), WoW TBC Classic, VATSIM flight
+     sim, MTG Commander, baking (rough puff pastry) are recreation activities
+     Recreation during financial crisis is a specific flag to track
+     Period 1 had 10+ simultaneous projects; Period 3 consolidated to 4 focused tracks
+
+7. Strategic Decision-Making (Weight: 5%)
+
+Measures: quality of resource allocation decisions, correct pivots, business-owner
+thinking
+
+Grade Criteria
+
+A  Every major decision correct, IP protection, revenue-focused
+
+B  Mostly correct decisions, minor misallocations
+
+C  Mixed decisions, some resource waste
+
+D  Strategically poor, building instead of selling, hardware spending during crisis
+
+F  Actively destructive decisions
+
+Matt-specific strategic history:
+
+     Key insight: Matt is a product builder, not a freelance service provider
+
+     Fiverr/Upwork grind strategy FAILED -- revenue came from product sales (Vox
+     Spectre $550) and trading bot (Kalshi 20x)
+
+     Kalshi trader was dismissed as a distraction for 2 periods -- it turned out to be the
+     best-performing asset. Don't repeat this mistake.
+
+     Hardware spending during cash crisis is a recurring flag (Supermicro chassis, Tesla
+     P40s, Amazon cart)
+
+     30-day homelessness deadline was the original framing (from ~Feb 16, 2026)
+
+PERIOD-OVER-PERIOD DATA (HISTORICAL)
+
+Period 1: February 16-22, 2026 -- Overall: C+
+
+Category        Grade  Key Facts
+Product Dev     A-     267 commits, 60 repos in Feb (volume, not depth)
+Revenue         D-     $0
+Job Search       C-  3 stretch applications (wrong industries)
+                     Steps ~7,800/day, HRV 57, RHR 66
+Health           C   No visible deliverables
+                     10+ simultaneous projects, empty calendar
+Client Work      D   Building infrastructure instead of selling
+
+Time Mgmt        D+
+
+Strategy         D
+
+Period 2: February 23 ­ March 19, 2026 -- Overall: B+
+
+Category Grade Key Facts
+
+Product      A       Wraith Browser 27K lines Rust, 348 tests
+Dev
+
+Revenue C+           Jake Brander $550 for Vox Spectre; Kalshi 20x w/4 beta testers;
+                     Fiverr=scammers; Upwork=200 connects, 0 contacts
+
+Job          A-      Job Hunter blitzed 23 companies Mar 18-19
+Search
+
+Health       D+      HRV crashed to 42ms, RHR rose to 73, exercise min/wk hit 13
+
+Client       C       Vox Spectre delivered, NDA for Infrared Photonics
+Work
+
+Time         C+      Focused but Factorio/VATSIM/MTG during crisis
+Mgmt
+
+Strategy A-          Products > services, correct pivots, Kalshi persistence vindicated
+
+Period 3: March 20 ­ April 8, 2026 -- Overall: A-
+
+Category Grade Key Facts
+
+Product      A+      ClaudioOS 294,710 lines/52 crates/56 modules; Wraith
+Dev                  commercialization; CAD tool for Incognito
+
+Revenue B            Active clients (Incognito + FCP), Kalshi ongoing, no new invoices
+                     visible
+
+Job          A-      6,000 total applications; needs quality filtering
+Search
+Health  B-  HRV doubled 4286ms, RHR dropped 7360-66, exercise
+            slacking (20-22 min/wk)
+Client  B+  Two active engagements (Incognito Acquisitions, First Choice
+            Plastics)
+Work
+            Consolidated to 4 focused tracks
+Time    B
+Mgmt        Every major decision correct
+
+Strategy A
+
+Trajectory
+
+   P1: C+ (2.3)  P2: B+ (3.3)  P3: A- (3.7)
+
+iOS APP SPECIFICATIONS
+
+Tech Stack
+
+     Language: Swift 6 (strict concurrency)
+     UI: SwiftUI
+     Min iOS: 17.0
+     Architecture: MVVM + Repository pattern
+     Local Storage: SwiftData (CoreData successor)
+     Health: HealthKit
+     Charts: Swift Charts (native)
+     Watch: WatchKit + WatchConnectivity
+     Networking: URLSession + async/await (for Gmail/GitHub API calls)
+     Auth: OAuth 2.0 + PKCE (Gmail, GitHub)
+     Notifications: Local notifications for weekly report ready
+
+Screens
+
+1. Dashboard (Main Screen)
+     Large circular grade ring showing overall letter grade (colored: A=green, B=blue,
+     C=yellow, D=orange, F=red)
+     7 category cards below with individual grades and sparkline trends
+     Period selector (swipe between weeks)
+     "Generate Report" button (triggers assessment engine)
+2. Category Detail View
+     Full grade history chart (line chart, all periods)
+     Current period metrics with vs-baseline comparisons
+     Specific data points that drove the grade
+     Recommendations section
+3. Health Dashboard
+     HealthKit metrics with charts (steps, HRV, RHR, active cal, exercise min)
+     Week-over-week comparison
+     Target zones highlighted (green=good, red=concern)
+     Meal plan adherence toggle (daily)
+     Workout log (daily)
+4. Job Search Dashboard
+     Application count this period
+     Applications by company (grouped)
+     Rejection/interview/offer pipeline
+     Quality score (% of apps matching target roles)
+5. Revenue Dashboard
+     Revenue this period vs prior periods
+     Active clients list with last contact date
+     Pipeline value estimate
+     Kalshi P&L chart
+6. GitHub Activity
+
+     Commits this week
+     Repos updated
+     Lines of code estimate
+     Contribution graph (replicating GitHub's)
+7. Settings
+     Gmail OAuth connection
+     GitHub PAT entry
+     Assessment period (weekly/biweekly/monthly)
+     Notification preferences
+     Manual data entry for items that can't be automated
+
+Apple Watch App
+
+Complication
+     Circular gauge showing overall grade letter
+     Updates weekly when new assessment runs
+
+Watch Screens
+1. Grade Ring -- overall grade with color
+2. Health Quick View -- today's steps, HRV, RHR
+3. Quick Actions -- "Log Walk," "Log Meal Plan Followed," "Log Workout"
+4. Category Summary -- scrollable list of 7 categories with grades
+WatchConnectivity
+
+     Phone sends assessment data to Watch via WCSession
+     Watch sends quick-log entries back to Phone
+Background refresh for complication updates
+
+BACKEND SPECIFICATIONS (OPTIONAL -- for automated
+scanning)
+
+If Matt wants to run the Gmail/GitHub scanners on his homelab (kokonoe or
+Supermicro):
+
+Tech Stack
+
+     Language: Rust
+     Framework: Axum
+     Database: SQLite (local-first, no cloud dependency)
+     Gmail: Gmail API v1 via reqwest
+     GitHub: GitHub API v3/v4 via reqwest
+     Auth: OAuth 2.0 token storage (encrypted, argon2id key derivation)
+     Scheduling: tokio cron or systemd timer
+     Deployment: Single binary, runs on any OpenClaw fleet node
+
+API Endpoints
+
+POST /api/assessment/generate    -- trigger weekly assessment
+GET /api/assessment/{period_id}  -- get specific assessment
+GET /api/assessments             -- list all assessments
+GET /api/health/current          -- latest health metrics (from iOS sync)
+GET /api/github/activity         -- latest GitHub scan results
+GET /api/gmail/applications      -- latest job application scan
+GET /api/revenue/summary         -- revenue data
+POST /api/manual/log             -- manual data entry
+
+ASSESSMENT ENGINE LOGIC
+
+The core engine runs weekly and produces a structured assessment:
+
+   struct WeeklyAssessment {
+   period_id: String,             // e.g., "2026-W15"
+
+   period_start: DateTime,
+
+   period_end: DateTime,
+
+   overall_grade: Grade,
+
+   overall_gpa: f64,
+
+   categories: Vec<CategoryAssessment>,
+
+   period_comparison: Option<PeriodComparison>,
+
+   recommendations: Vec<String>,
+
+   data_sources_used: Vec<DataSource>,
+
+   generated_at: DateTime,
+
+}
+
+struct CategoryAssessment {
+       category: Category,
+       grade: Grade,
+       gpa: f64,
+       weight: f64,
+       metrics: Vec<Metric>,
+       vs_baseline: Vec<BaselineComparison>,
+       vs_prior_period: Option<GradeChange>,
+       notes: Vec<String>,
+
+}
+
+enum Category {
+       ProductDevelopment,
+       RevenuePipeline,
+       JobHunting,
+       ClientWork,
+       PhysicalHealth,
+       TimeManagement,
+       StrategyDecisions,
+
+}
+
+enum Grade {
+       APlus, A, AMinus,
+       BPlus, B, BMinus,
+       CPlus, C, CMinus,
+       DPlus, D, DMinus,
+       F, Incomplete,
+
+}
+
+Grading Algorithm
+
+1. Collect data from all sources (HealthKit, Gmail, GitHub, Calendar, manual input)
+2. Compute metrics per category (see rubric above)
+3. Compare to baselines and prior period
+4. Apply rubric to assign letter grade per category
+5. Compute weighted average for overall grade
+6. Generate recommendations based on lowest-scoring categories and trend
+
+     direction
+7. Store assessment in local database
+8. Push notification to iOS/Watch
+
+Health Grading Specifics
+
+func gradeHealth(metrics: HealthMetrics, baseline: HealthBaseline) -> Grade {
+       var score: Double = 0.0
+
+// HRV (most important -- weight 30%)
+
+if metrics.hrv >= 60 { score += 1.3 }  // Good
+
+else if metrics.hrv >= 50 { score += 0.9 } // Acceptable
+
+else if metrics.hrv >= 40 { score += 0.4 } // Concerning
+
+else { score += 0.0 }                  // Crisis
+
+// Resting HR (weight 20%)
+if metrics.restingHR <= 65 { score += 0.86 }
+else if metrics.restingHR <= 70 { score += 0.6 }
+else if metrics.restingHR <= 75 { score += 0.3 }
+else { score += 0.0 }
+
+// Steps (weight 15%)
+if metrics.stepsPerDay >= 7500 { score += 0.65 }
+else if metrics.stepsPerDay >= 5000 { score += 0.4 }
+else { score += 0.15 }
+
+// Exercise Minutes (weight 15%)
+if metrics.exerciseMinPerWeek >= 150 { score += 0.65 }
+else if metrics.exerciseMinPerWeek >= 75 { score += 0.4 }
+else if metrics.exerciseMinPerWeek >= 30 { score += 0.2 }
+else { score += 0.0 }
+
+// Meal plan adherence (weight 10%)
+if metrics.mealPlanDaysFollowed >= 6 { score += 0.43 }
+else if metrics.mealPlanDaysFollowed >= 4 { score += 0.25 }
+else { score += 0.0 }
+
+// Trend bonus/penalty (weight 10%)
+           if metrics.hrv > baseline.hrv * 1.1 { score += 0.43 }
+           else if metrics.hrv < baseline.hrv * 0.9 { score -= 0.2 }
+
+           return gradeFromScore(score, maxScore: 4.3)
+    }
+
+DON'TS
+
+ 1. DO NOT use a cloud backend for health data. HealthKit data stays on-device. Period.
+ 2. DO NOT grade Fiverr activity as pipeline -- it's 100% scammers.
+ 3. DO NOT dismiss the Kalshi trader as a distraction. It's the highest-ROI asset.
+ 4. DO NOT penalize private repos. Matt's best work (Wraith, ClaudioOS, Kalshi) is
+
+      private for valid IP protection reasons.
+ 5. DO NOT use React Native or Flutter. This is a native Swift/SwiftUI app.
+ 6. DO NOT require internet for basic functionality. Assessment history and health data
+
+      should work offline.
+ 7. DO NOT auto-share data anywhere. Matt controls what leaves the device.
+ 8. DO NOT use localStorage in any web views -- use SwiftData.
+ 9. DO NOT count the same application twice. Greenhouse sends security codes +
+
+      confirmations, which creates duplicate emails per application. Deduplicate by
+      company+role.
+10. DO NOT assume mmichels88@gmail.com data is accessible -- it's not connected to
+      OAuth.
+
+CONVENTIONS
+
+      Swift 6 strict concurrency throughout -- no data races
+      @Observable macro for view models (not ObservableObject)
+      SwiftData for persistence (not CoreData directly)
+      Swift Charts for all visualizations (not third-party charting)
+      Verbose logging -- use os.Logger with subsystem
+     "com.ridgecellrepair.performancetracker"
+
+     Error handling -- never crash, always show user-friendly error + log details
+
+     Accessibility -- VoiceOver labels on all grade displays and charts
+
+     Dark mode -- primary design target (Matt uses dark mode)
+
+     Color scheme: Grade colors -- A=emerald green, B=blue, C=amber, D=orange,
+     F=red
+
+FILE STRUCTURE
+
+   PerformanceTracker/
+    PerformanceTracker.xcodeproj
+    PerformanceTracker/
+     App/
+      PerformanceTrackerApp.swift
+      ContentView.swift
+     Models/
+      Assessment.swift
+      Category.swift
+      Grade.swift
+      HealthMetrics.swift
+      GitHubActivity.swift
+      JobSearchMetrics.swift
+      RevenueMetrics.swift
+      ManualEntry.swift
+     ViewModels/
+      DashboardViewModel.swift
+      HealthViewModel.swift
+      JobSearchViewModel.swift
+      RevenueViewModel.swift
+      GitHubViewModel.swift
+     Views/
+      Dashboard/
+       DashboardView.swift
+       GradeRingView.swift
+       CategoryCardView.swift
+       TrendSparklineView.swift
+      Health/
+       HealthDashboardView.swift
+       HRVChartView.swift
+       MealPlanToggleView.swift
+      JobSearch/
+    JobSearchView.swift
+
+    ApplicationPipelineView.swift
+
+   Revenue/
+
+    RevenueView.swift
+
+    ClientListView.swift
+
+   GitHub/
+
+    GitHubView.swift
+
+    ContributionGraphView.swift
+
+   Settings/
+
+           SettingsView.swift
+
+           OAuthSetupView.swift
+
+  Services/
+
+   HealthKitService.swift
+
+   GmailService.swift
+
+   GitHubService.swift
+
+   AssessmentEngine.swift
+
+   GradingRubric.swift
+
+  Persistence/
+
+   DataController.swift
+
+  Utilities/
+
+   Logger.swift
+
+   DateExtensions.swift
+
+   GradeColors.swift
+
+ PerformanceTrackerWatch/
+
+  App/
+
+   PerformanceTrackerWatchApp.swift
+
+  Views/
+
+   GradeRingWatchView.swift
+
+   HealthQuickView.swift
+
+   QuickActionsView.swift
+
+   CategorySummaryView.swift
+
+  Complications/
+
+   GradeComplication.swift
+
+  Connectivity/
+
+   WatchSessionManager.swift
+
+ Shared/
+
+  Models/ (shared between iOS + Watch)
+
+  GradeCalculation.swift
+
+ Tests/
+
+   AssessmentEngineTests.swift
+
+   GradingRubricTests.swift
+
+   HealthGradingTests.swift
+
+PHASE 1 DELIVERABLES (MVP)
+ 1. HealthKit integration -- query all 7 metrics, display in charts
+ 2. Grade calculation engine -- compute health grade from HealthKit data
+ 3. Dashboard view -- overall grade ring + health category card
+ 4. Manual entry -- meal plan toggle, workout log, revenue entry
+ 5. SwiftData persistence -- store assessments locally
+ 6. Period comparison -- current vs prior week
+
+PHASE 2
+
+ 7. Gmail OAuth + application scanning
+ 8. GitHub API integration
+ 9. Full 7-category grading engine
+10. Watch app with complication
+
+PHASE 3
+
+11. Rust backend for automated scanning (deploy to kokonoe)
+12. Push notifications for weekly report
+13. Historical trend analysis + predictions
+14. Export assessments as markdown/PDF
+

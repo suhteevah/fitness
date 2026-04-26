@@ -1,0 +1,142 @@
+{
+  "schema": "meal-templates.v1",
+  "dietProfile": "ketoAnimalBasedNoPork",
+  "source": "seed",
+  "note": "12 seed meal templates for Phase 1. Replace with Matt's 4 normalized meal prep plans once pasted. See docs/TRAINING-INTELLIGENCE.md § Meal templates.",
+  "templates": [
+    {
+      "id": "keto-animal-001",
+      "name": "Ribeye + Butter Eggs",
+      "macros": { "kcal": 640, "proteinG": 50, "fatG": 45, "carbG": 3 },
+      "contexts": [
+        { "training": "postStrength", "recovery": "good" },
+        { "training": "postStrength", "recovery": "moderate" },
+        { "training": "postStrength", "recovery": "poor" }
+      ],
+      "ingredients": ["ribeye", "pastured eggs", "grass-fed butter", "sea salt"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-002",
+      "name": "Ground Beef Bowl",
+      "macros": { "kcal": 560, "proteinG": 45, "fatG": 38, "carbG": 5 },
+      "contexts": [
+        { "training": "postStrength", "recovery": "good" },
+        { "training": "postStrength", "recovery": "moderate" }
+      ],
+      "ingredients": ["80/20 ground beef", "cheddar", "avocado", "tallow"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-003",
+      "name": "Sirloin + Ghee + Berries",
+      "macros": { "kcal": 440, "proteinG": 42, "fatG": 28, "carbG": 10 },
+      "contexts": [
+        { "training": "postZone4", "recovery": "good" },
+        { "training": "postZone4", "recovery": "moderate" },
+        { "training": "postZone4", "recovery": "poor" }
+      ],
+      "ingredients": ["sirloin steak", "ghee", "blueberries", "sea salt"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-004",
+      "name": "Chicken Thighs + Bone Broth",
+      "macros": { "kcal": 420, "proteinG": 38, "fatG": 30, "carbG": 2 },
+      "contexts": [
+        { "training": "postZone2", "recovery": "good" },
+        { "training": "postZone2", "recovery": "moderate" }
+      ],
+      "ingredients": ["bone-in chicken thighs", "beef bone broth", "butter", "rosemary"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-005",
+      "name": "Eggs + Avocado + Beef Breakfast Sausage",
+      "macros": { "kcal": 520, "proteinG": 30, "fatG": 42, "carbG": 4 },
+      "contexts": [
+        { "training": "restDay", "recovery": "good" },
+        { "training": "preHardTomorrow", "recovery": "moderate" }
+      ],
+      "ingredients": ["pastured eggs", "avocado", "beef breakfast sausage (no pork)", "butter"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-006",
+      "name": "Liver + Onion + Butter",
+      "macros": { "kcal": 360, "proteinG": 35, "fatG": 22, "carbG": 6 },
+      "contexts": [
+        { "training": "restDay", "recovery": "poor" }
+      ],
+      "ingredients": ["grass-fed beef liver", "onion", "grass-fed butter", "sea salt"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-007",
+      "name": "Ribeye + Eggs + Sardines",
+      "macros": { "kcal": 660, "proteinG": 55, "fatG": 48, "carbG": 1 },
+      "contexts": [
+        { "training": "restDay", "recovery": "poor" },
+        { "training": "postStrength", "recovery": "poor" }
+      ],
+      "ingredients": ["ribeye", "pastured eggs", "wild-caught sardines", "olive oil"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-008",
+      "name": "Chicken + Butter-Fried Zucchini",
+      "macros": { "kcal": 420, "proteinG": 40, "fatG": 28, "carbG": 5 },
+      "contexts": [
+        { "training": "postZone2", "recovery": "good" },
+        { "training": "postZone2", "recovery": "poor" }
+      ],
+      "ingredients": ["chicken breast", "zucchini", "butter", "garlic"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-009",
+      "name": "Lamb Chops + Bone Broth",
+      "macros": { "kcal": 560, "proteinG": 38, "fatG": 45, "carbG": 2 },
+      "contexts": [
+        { "training": "postStrength", "recovery": "moderate" },
+        { "training": "postStrength", "recovery": "poor" }
+      ],
+      "ingredients": ["lamb chops", "beef bone broth", "rosemary", "ghee"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-010",
+      "name": "Beef Tallow Egg Scramble + Cheese",
+      "macros": { "kcal": 500, "proteinG": 34, "fatG": 40, "carbG": 3 },
+      "contexts": [
+        { "training": "restDay", "recovery": "good" },
+        { "training": "restDay", "recovery": "moderate" }
+      ],
+      "ingredients": ["pastured eggs", "beef tallow", "cheddar", "sea salt"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-011",
+      "name": "Grass-Fed Beef Bowl + Greek Yogurt",
+      "macros": { "kcal": 520, "proteinG": 48, "fatG": 32, "carbG": 9 },
+      "contexts": [
+        { "training": "postStrength", "recovery": "good" },
+        { "training": "postZone4", "recovery": "good" }
+      ],
+      "ingredients": ["grass-fed ground beef", "full-fat Greek yogurt", "berries", "tallow"],
+      "isFallback": false
+    },
+    {
+      "id": "keto-animal-012",
+      "name": "Seared Steak + Grass-Fed Butter + Greens",
+      "macros": { "kcal": 570, "proteinG": 46, "fatG": 40, "carbG": 3 },
+      "contexts": [
+        { "training": "preHardTomorrow", "recovery": "good" },
+        { "training": "preHardTomorrow", "recovery": "moderate" },
+        { "training": "preHardTomorrow", "recovery": "poor" }
+      ],
+      "ingredients": ["NY strip steak", "grass-fed butter", "spinach", "olive oil"],
+      "isFallback": true
+    }
+  ]
+}
