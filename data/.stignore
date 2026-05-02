@@ -1,0 +1,4 @@
+// Exclude local-only logs from sync
+harvest-logs
+*.log
+.gh-pat

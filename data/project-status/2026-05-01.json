@@ -1,0 +1,134 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-01",
+  "captured_at": "2026-05-01T23:24:00-07:00",
+  "source": "claude-routine-v1",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 20,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out.",
+      "milestones_hit": [],
+      "blockers": ["RTL8168 RX blocked"]
+    },
+    {
+      "name": "Wraith",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 20,
+      "handoff_excerpt": "Deployed the proprietary corpo tier (api-server, wraith-enterprise binary, 77 REST endpoints + WS).",
+      "milestones_hit": ["Corpo tier deployed", "77 REST endpoints + WS live"],
+      "blockers": []
+    },
+    {
+      "name": "Kalshi",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 1391,
+      "handoff_excerpt": null,
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "JobHunter",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 20,
+      "handoff_excerpt": "Orchestrator live, 30min poll cadence (last updated 2026-04-11 session 2 end).",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "RightWire",
+      "path": "/j/political news app/",
+      "language_primary": "typescript",
+      "commits_today": 7,
+      "commits_this_week": 12,
+      "lines_changed_today": 1596,
+      "lines_changed_this_week": 3939,
+      "handoff_excerpt": "Per-post AI categorizer + IP-rotation scrape architecture shipped. Three big systems landed this session.",
+      "milestones_hit": ["Per-post AI categorizer shipped", "IP-rotation scrape architecture shipped"],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 12716,
+      "handoff_excerpt": "Phase 1 builds on simulator; tests awaiting iMac power-cycle. PDFs converted to clean markdown.",
+      "milestones_hit": ["App launches on iPhone 17 Pro Max", "Abacus integration wired", "32 meal templates including 14 muscle-build expansions", "claude.ai routine pipeline (GitHub repo + puller) wired"],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": "Seth Barone",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No contact data harvested this run; harvested by kokonoe-side cron without Gmail/Calendar access."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": "Cory Sturgis",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No contact data harvested this run."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No contact data harvested this run."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No contact data harvested this run."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": 0,
+      "status_note": "No contact data harvested this run."
+    }
+  ],
+  "strategic_events": [
+    {"date": "2026-05-01", "type": "milestone", "detail": "Wraith Corpo tier deployed (77 REST endpoints + WebSocket)"},
+    {"date": "2026-05-01", "type": "milestone", "detail": "RightWire per-post AI categorizer + IP-rotation scrape shipped"},
+    {"date": "2026-05-01", "type": "milestone", "detail": "PerformanceTracker app launches successfully on iPhone with Abacus integration live"}
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Health half intentionally null — kokonoe Claude CLI has no HealthKit connector. Health JSONs now produced by claude.ai Routine pushing to suhteevah/performancetracker-data and pulled into J:\\fitness\\data\\health-daily\\ by PT-Data-Pull scheduled task (every 15 min). This file is the project-status half only."
+}

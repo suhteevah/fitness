@@ -11,6 +11,14 @@
 #   schtasks /Create /SC MINUTE /MO 15 /TN "PT-Data-Pull" /TR "powershell -ExecutionPolicy Bypass -File J:\fitness\scripts\pull-data-repo.ps1" /F
 
 $ErrorActionPreference = "Continue"
+
+# git is not on SYSTEM's PATH by default; ensure we can find it under either context.
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+    foreach ($p in @('C:\Program Files\Git\cmd', 'C:\Program Files\Git\bin')) {
+        if (Test-Path "$p\git.exe") { $env:PATH = "$p;$env:PATH"; break }
+    }
+}
+
 $repoDir = "J:\fitness\data-repo"
 $dataDir = "J:\fitness\data"
 $logDir  = "$dataDir\harvest-logs"
@@ -27,10 +35,26 @@ if (-not (Test-Path "$repoDir\.git")) {
     exit 1
 }
 
+# Fail-fast on any credential prompt — hidden scheduled runs cannot complete one.
+$env:GCM_INTERACTIVE = 'Never'
+$env:GIT_TERMINAL_PROMPT = '0'
+$env:GIT_ASKPASS = 'echo'
+
+# Inject PAT as a one-shot Authorization header so the token never lands in .git/config.
+$patFile = 'J:\fitness\.gh-pat'
+$authArgs = @()
+if (Test-Path $patFile) {
+    $tok = (Get-Content -Path $patFile -Raw -Encoding ascii).Trim()
+    if ($tok) {
+        $b64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("x-access-token:$tok"))
+        $authArgs = @('-c', "http.https://github.com/.extraheader=Authorization: Basic $b64")
+    }
+}
+
 Push-Location $repoDir
 try {
-    git fetch --quiet origin main 2>&1 | Tee-Object -FilePath $logFile -Append
-    git reset --hard origin/main 2>&1 | Tee-Object -FilePath $logFile -Append
+    & git @authArgs fetch --quiet origin main 2>&1 | Tee-Object -FilePath $logFile -Append
+    & git @authArgs reset --hard origin/main 2>&1 | Tee-Object -FilePath $logFile -Append
 } finally {
     Pop-Location
 }

@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: pt-data-dist
+created: 2026-05-01T21:05:09-07:00
