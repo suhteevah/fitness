@@ -1,0 +1,136 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-02",
+  "captured_at": "2026-05-02T22:53:35-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 22,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts / doesn't deliver frames. Likely needs chip-variant-specific init (Linux r8169-style CPlusCmd + Config regs).",
+      "milestones_hit": ["RTL8168 driver TX path live on real hardware at 1000M"],
+      "blockers": ["RTL8168 RX path blocked — chip fires zero RX interrupts; DHCP times out; needs chip-variant init"]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 2,
+      "commits_this_week": 8,
+      "lines_changed_today": 3435,
+      "lines_changed_this_week": 3455,
+      "handoff_excerpt": "Hosted Corpo API live at https://wraith-browser.vercel.app (Vercel TLS-proxied) and http://207.244.232.227:8080 (direct). Open AGPL repo + proprietary api-server tier both deploying clean. Growth-prep artifacts staged. FR queue cleared except for cross-repo FR-4.",
+      "milestones_hit": ["Hosted Corpo API live on Vercel + VPS", "Growth-prep artifacts staged", "FR queue cleared (except cross-repo FR-4)"],
+      "blockers": ["BR-3: exposed GitHub PAT awaiting rotation (Matt-action)", "FR-4 blocked on ClaudioOS session for HttpTransport vendoring"]
+    },
+    {
+      "name": "Kalshi Trader v7 (Pixie Dust)",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 7,
+      "commits_this_week": 16,
+      "lines_changed_today": 5298,
+      "lines_changed_this_week": 6689,
+      "handoff_excerpt": "No HANDOFF.md present. Today's commits: v7.10.0 release with signed installer, brain pre-filter + auto-gate + weather YES gate + polymarket persistence; polymarket .us heartbeat + IPv4 force fix for VPS ENETUNREACH; proposer prompt rewrite to undo systematic NO bias.",
+      "milestones_hit": ["v7.10.0 released with signed installer", "Polymarket .us heartbeat + telegram notifier deployed to VPS", "Brain prompt v3 disambiguates data evidence from allowlist"],
+      "blockers": []
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "typescript",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 22,
+      "handoff_excerpt": "Sniper mode active. Orchestrator live (30min poll + 2h scrape). ~5,746 applications submitted historically; ~33,000+ jobs tracked. DO NOT mass-apply. Open question from prior session: Priyasha S. client-call status.",
+      "milestones_hit": [],
+      "blockers": ["Open Q: Priyasha S. client call outcome (Matt handled manually)"]
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "typescript",
+      "commits_today": 7,
+      "commits_this_week": 32,
+      "lines_changed_today": 6129,
+      "lines_changed_this_week": 10606,
+      "handoff_excerpt": "Site healthy after longest session of the project. Audit harness fully green (64 ok / 0 fail). All sidecar-driven crons run through Claude Code OAuth (zero claude.ai chat clutter). Real live market data flowing into Intel dashboards. CNC scraper recovered from Twitter API restructure, ingests ~790 tweets/run. First promotional tweet under @therightwireai went live with war-room map image.",
+      "milestones_hit": ["Claude Code OAuth swap shipped (sidecar zero-chat-clutter)", "Twitter API restructure recovery — scrape green, ~790 tweets/run", "Real live market data flowing into Intel dashboards (Yahoo Finance swap)", "First promotional tweet under @therightwireai went live", "Audit harness 64/0 green", "DM channel with @dirtyclankers established"],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 1,
+      "commits_this_week": 8,
+      "lines_changed_today": 491,
+      "lines_changed_this_week": 13207,
+      "handoff_excerpt": "App launches clean on iPhone 17 Pro Max. Dashboard shows seeded P1/P2/P3 trajectory + live Abacus finance. Revenue tab pulls bank-feed transactions across All Orgs / per-org with 7/30/90/365d window picker. Meal recommender draws from 32 templates. Health data flows on-device via HealthKit; project-status harvested nightly by kokonoe scheduled task.",
+      "milestones_hit": ["App shipping on iPhone 17 Pro Max (live device)", "Abacus finance wired into Revenue tab", "Health pipeline finalized (on-device HealthKit + nightly kokonoe project harvest)", "SwiftData iOS 26 dictionary-trap crash fixed", "HealthKit auth abort fixed (xcodegen Info.plist regression)"],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": "Seth Barone",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe routine — fields null"
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": "Cory Sturgis",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe routine — fields null"
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe routine — fields null"
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe routine — fields null"
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe routine — fields null"
+    }
+  ],
+  "strategic_events": [
+    { "date": "2026-05-02", "type": "release", "detail": "Kalshi Trader v7.10.0 released with signed installer (brain pre-filter, auto-gate, weather YES gate, polymarket persistence)" },
+    { "date": "2026-05-02", "type": "launch", "detail": "The Right Wire growth launch — first promotional tweet under @therightwireai with war-room map image" },
+    { "date": "2026-05-02", "type": "milestone", "detail": "Wraith Browser hosted Corpo API live at https://wraith-browser.vercel.app (Vercel TLS-proxied) + 207.244.232.227:8080 direct" },
+    { "date": "2026-05-02", "type": "milestone", "detail": "PerformanceTracker app running on Matt's iPhone 17 Pro Max with Abacus finance wired and HealthKit pipeline finalized" },
+    { "date": "2026-05-02", "type": "infra", "detail": "The Right Wire sidecar/cron stack swapped to Claude Code OAuth (zero claude.ai chat clutter)" }
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Health harvest intentionally omitted — handled on-device by iOS app via HealthKit. Client metrics null because kokonoe routine has no Gmail/Calendar connector. Top project today: The Right Wire (7 commits / 6129 LOC) closely followed by Kalshi Trader v7 (7 commits / 5298 LOC including v7.10.0 release)."
+}
