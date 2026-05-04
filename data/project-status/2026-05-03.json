@@ -1,0 +1,146 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-03",
+  "captured_at": "2026-05-03T22:55:00-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 208,
+      "lines_changed_this_week": 220,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts / doesn't deliver frames. Likely needs chip-variant-specific init.",
+      "milestones_hit": ["Bootloader migration to Limine shipped"],
+      "blockers": ["RTL8168 RX blocked — chip fires zero RX interrupts, DHCP times out"]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 8,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 3447,
+      "handoff_excerpt": "Hosted Corpo API live at https://wraith-browser.vercel.app and direct VPS at 207.244.232.227:8080. AGPL repo + proprietary api-server tier both deploying clean. Growth-prep artifacts staged. FR queue cleared except for cross-repo FR-4.",
+      "milestones_hit": ["Cross-compile release pipeline shipped (BR-2)", "Hosted Corpo API live"],
+      "blockers": ["FR-4 cross-repo wraith-transport bridge pending ClaudioOS session"]
+    },
+    {
+      "name": "Kalshi Trader v7 (Pixiedust)",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 6,
+      "commits_this_week": 21,
+      "lines_changed_today": 2599,
+      "lines_changed_this_week": 7907,
+      "handoff_excerpt": "NO-SHIP. Pre-prod red team identified >=7 P0 defects across trading path and auth surface. Real-money production blocked until P0 + P1 checklist lands. Today: warehouse layer + brain v3 quality read; MLB/NBA warehouse-first scanner reads (mig 042/043); cross-sport identity bridge (mig 044).",
+      "milestones_hit": ["Warehouse layer wired (MLB+NBA)", "Cross-sport identity bridge migration 044", "Brain v3 quality read"],
+      "blockers": [">=7 P0 red-team defects in trading + auth surface — production gated"]
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "Orchestrator live, 30min poll + 2h scrape, sniper mode. Priyasha S. client call status — Matt handled scheduling manually.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "rust",
+      "commits_today": 2,
+      "commits_this_week": 33,
+      "lines_changed_today": 175,
+      "lines_changed_this_week": 8446,
+      "handoff_excerpt": "Healthy. No code changes this session. Warm-account post #2 went out under @therightwireai (naval/ARG-spotting angle). Documented an X automation gotcha (Lexical editor). Curated public-apis catalogue against TRW's intel surface.",
+      "milestones_hit": ["Warm-account post #2 published", "Public-apis catalogue curated"],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 1,
+      "commits_this_week": 8,
+      "lines_changed_today": 139,
+      "lines_changed_this_week": 640,
+      "handoff_excerpt": "APP RUNNING ON iPhone 17 Pro Max — Abacus wired — health pipeline finalized. Dashboard shows seeded P1/P2/P3 trajectory + live Abacus finance. Revenue tab pulls bank-feed transactions across All Orgs / per-org with 7/30/90/365d window picker.",
+      "milestones_hit": ["App live on iPhone 17 Pro Max", "Abacus finance integration wired", "Health pipeline finalized"],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    }
+  ],
+  "strategic_events": [
+    {
+      "date": "2026-05-03",
+      "type": "milestone",
+      "detail": "Wraith Browser hosted Corpo API live (Vercel TLS proxy → VPS, 77 endpoints, JWT auth)"
+    },
+    {
+      "date": "2026-05-03",
+      "type": "milestone",
+      "detail": "Kalshi Pixiedust cross-sport identity bridge shipped (migration 044) — warehouse layer wired across MLB + NBA"
+    },
+    {
+      "date": "2026-05-03",
+      "type": "incident",
+      "detail": "Kalshi Pixiedust red team flagged >=7 P0 defects — real-money production blocked"
+    }
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Health harvest intentionally omitted — handled on-device by iOS app via HealthKit. Client harvest skipped — Claude Code CLI on kokonoe has no Gmail/Calendar connector. Pixiedust P0 blocker added today (2026-05-03) — flagged as ALERT in Telegram."
+}
