@@ -1,0 +1,302 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-04",
+  "captured_at": "2026-05-04T22:55:00-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 220,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts.",
+      "milestones_hit": [],
+      "blockers": ["RTL8168 RX blocked — chip fires zero RX interrupts, DHCP times out"]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 3447,
+      "handoff_excerpt": "Hosted Corpo API live at https://wraith-browser.vercel.app and direct VPS at 207.244.232.227:8080. AGPL repo + proprietary api-server tier both deploying clean.",
+      "milestones_hit": [],
+      "blockers": ["FR-4 cross-repo wraith-transport bridge pending ClaudioOS session"]
+    },
+    {
+      "name": "Kalshi Trader v7 (Pixiedust)",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 21,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 8159,
+      "handoff_excerpt": "NO-SHIP. Pre-prod red team flagged >=7 P0 defects across trading path and auth surface. Real-money production blocked until P0 + P1 checklist lands.",
+      "milestones_hit": [],
+      "blockers": [">=7 P0 red-team defects in trading + auth surface — production gated"]
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 38,
+      "handoff_excerpt": "Orchestrator live, 30min poll + 2h scrape, sniper mode. Max 5-10/day hand-curated apps.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 33,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 8694,
+      "handoff_excerpt": "Healthy. No code changes today. Warm-account post #2 went out under @therightwireai (naval/ARG-spotting angle). Documented X automation gotcha (Lexical editor) and curated public-apis catalogue against TRW intel surface.",
+      "milestones_hit": ["Warm-account post #2 published (@therightwireai naval-tracker tweet)", "Public-apis curated catalogue written to wiki", "X Lexical-editor posting pattern documented"],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 786,
+      "handoff_excerpt": "App live on iPhone 17 Pro Max. Abacus wired (All-Orgs + per-org, 7/30/90/365d window). HealthKit auth fixed by removing xcodegen info: block. 32 meal templates incl. post-strength refeed (carb-gated).",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Antcolony (PPO trainer)",
+      "path": "/j/antcolony/",
+      "language_primary": "rust",
+      "commits_today": 4,
+      "commits_this_week": 58,
+      "lines_changed_today": 673,
+      "lines_changed_this_week": 18506,
+      "handoff_excerpt": "PPO r5/r6/r7 results in. Nash plateau confirmed at ~47% on 7-archetype bench; v1 hits 50.7% on wider 5-mix bench. Cold-start at h=128 regresses; warm-start r7b also regresses. BC ceiling holds — outcome-driven RL refinement not pushing past.",
+      "milestones_hit": ["PPO r6 reward shaping + noisy pool shipped", "PPO r7 3-path attack (stochastic-inference + wider bench + arch change) shipped", "Runtime --hidden-dim flag with weight-shape round-trip", "value-clip eliminating r6 40M+ loss spikes"],
+      "blockers": ["BC ceiling: PPO refinement not exceeding bootstrap policy on this bench"]
+    },
+    {
+      "name": "Aether",
+      "path": "/j/aether/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 33477,
+      "handoff_excerpt": "Audit clean: errors 0, status OK, 55/55 unit tests pass. Roadmap v2 witness count climb. Autonomous roadmap sweep complete.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Candle Fork",
+      "path": "/j/candle-src/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 191,
+      "handoff_excerpt": "7B QLoRA on 8GB Ampere rock-solid. TDPI loop has stress-tested four perf hypotheses, rejected three.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "claudeai workbench",
+      "path": "/j/claudeai/",
+      "language_primary": "mixed",
+      "commits_today": 0,
+      "commits_this_week": 13,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 7083,
+      "handoff_excerpt": "Closed 3 open cnc tasks. Workbench addendum complete.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "distcc-for-claw",
+      "path": "/j/distcc for claw project/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 127,
+      "handoff_excerpt": "OpenClaw fleet end-to-end on cnc-server: gateway on Opus 4.7 OAuth, 9 subagents wired, tiered memory live.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "flightsuite",
+      "path": "/j/flightsuite/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 161,
+      "handoff_excerpt": "Scaffolding live. 2026-05-02 clean-room provenance honesty checkpoint, no code touched.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "FLIR / blackbody",
+      "path": "/j/flir/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 3278,
+      "handoff_excerpt": "Initial scaffolding session done. CLEANROOM.md + LEGAL.md in place; pickup awaits next session.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Incognito CAD Tool",
+      "path": "/j/icognito cad tool/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 804,
+      "handoff_excerpt": "Reassessment session 2026-05-03. Picks up via Claude Code CLI.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "llm-wiki",
+      "path": "/j/llm-wiki/",
+      "language_primary": "markdown",
+      "commits_today": 0,
+      "commits_this_week": 15,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 20119,
+      "handoff_excerpt": "Personal LLM-practice vault. Today added: x-posting-lexical-keyboard-events pattern, public-apis-curated source page.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "OpenClaw model-load optimizer",
+      "path": "/j/openclaw model load optimizer/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 117,
+      "handoff_excerpt": "Code complete, awaiting P100 deployment.",
+      "milestones_hit": [],
+      "blockers": ["Awaiting P100 deployment"]
+    },
+    {
+      "name": "Pledge & Crowns",
+      "path": "/j/pledgeandcrowns/",
+      "language_primary": "typescript",
+      "commits_today": 0,
+      "commits_this_week": 80,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 25257,
+      "handoff_excerpt": "Full v1 roadmap shipped end-to-end including audio score, curriculum gating, wasm rendering fix, wasm save persistence.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "visionsystem",
+      "path": "/j/visionsystem/",
+      "language_primary": "python",
+      "commits_today": 0,
+      "commits_this_week": 1,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 115754,
+      "handoff_excerpt": "MVP live: face-id + pink-square verified on C922 (2026-05-03).",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "wages of war",
+      "path": "/j/wages of war/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 1696,
+      "handoff_excerpt": "Wall data extraction + wall-rendering pass landed (2026-05-03).",
+      "milestones_hit": [],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    }
+  ],
+  "strategic_events": [
+    {
+      "date": "2026-05-04",
+      "type": "milestone",
+      "detail": "Antcolony PPO trainer reaches honest 50.7% (v1 on 5-mix bench); BC ceiling formally diagnosed across r5/r6/r7"
+    },
+    {
+      "date": "2026-05-04",
+      "type": "milestone",
+      "detail": "TRW @therightwireai warm-account post #2 published (naval/ARG-spotting angle)"
+    },
+    {
+      "date": "2026-05-04",
+      "type": "knowledge",
+      "detail": "X automation gotcha documented: Lexical editor requires real keyboard events, not execCommand insertText; CreateTweet queryId rotated to Qkq4oPdZYuNB_Qw3TDuFqQ"
+    }
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Most repos show 1 'Initial commit - uploaded via github-uploader-buildout' commit dated today — automated repo-init churn, not real activity. commits_today/lines_changed_today set to 0 for those repos. Real today-activity isolated to antcolony (4 substantive PPO commits, ~673 LOC) and TRW (no-code: tweet + wiki/memory). Health harvest intentionally omitted — handled on-device by iOS app via HealthKit. Client harvest skipped — no Gmail/Calendar connector on kokonoe."
+}
