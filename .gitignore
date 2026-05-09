@@ -88,3 +88,8 @@ lpt8
 lpt9
 
 .gh-pat
+
+# HealthKit raw export — too large for git (47MB zip, 650MB extracted).
+# Aggregates produced by scripts/aggregate-healthkit-export.py are checked in.
+healthkit complete.zip
+data/healthkit-export/

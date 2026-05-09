@@ -1,0 +1,302 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-08",
+  "captured_at": "2026-05-08T22:55:33-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 222,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts. Next: read chip XID 0x40 + variant init.",
+      "milestones_hit": [],
+      "blockers": ["RTL8168 RX blocked — chip fires zero RX interrupts, DHCP times out"]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 9,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 3449,
+      "handoff_excerpt": "Hosted Corpo API live at https://wraith-browser.vercel.app and direct VPS at 207.244.232.227:8080. AGPL repo + proprietary api-server tier both deploying clean. FR queue cleared except cross-repo FR-4.",
+      "milestones_hit": [],
+      "blockers": ["No free hostname picked for Caddy/TLS — Vercel rewrites cover REST but WebSocket upgrades + cleartext Vercel→VPS leg need real TLS on the VPS", "FR-4 cross-repo wraith-transport bridge pending ClaudioOS session"]
+    },
+    {
+      "name": "Kalshi Trader v7 (Pixiedust)",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 22,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 8161,
+      "handoff_excerpt": "NO-SHIP. Pre-prod red team consolidated into NEXT-UP.md (252 lines): 7 P0s, 5 P1s, 5 P2s, 3 P3s. Highest-leverage P0s: missing client_order_id orphans live positions; TOCTOU on daily_cost/open_positions/balance breaches daily cap; nil-UUID Enterprise JWT mintable from create_owner_token.",
+      "milestones_hit": [],
+      "blockers": [">=7 P0 red-team defects in trading + auth surface — production gated until P0+P1 fixes ship"]
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 38,
+      "handoff_excerpt": "Orchestrator live, 30min poll + 2h scrape, sniper mode. Max 5-10/day hand-curated apps. Upwork primary; GH/Ashby/Lever pool fully drained.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 34,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 8696,
+      "handoff_excerpt": "Healthy. No code changes since 2026-05-04. Warm-account post #2 went out under @therightwireai (naval/ARG-spotting angle). X Lexical-editor automation gotcha documented; queryId for CreateTweet rotated to Qkq4oPdZYuNB_Qw3TDuFqQ.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 0,
+      "commits_this_week": 9,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 1397,
+      "handoff_excerpt": "App live on iPhone 17 Pro Max. Abacus wired (All-Orgs + per-org, 7/30/90/365d window). HealthKit auth fixed by removing xcodegen info: block. 32 meal templates incl. post-strength refeed (carb-gated).",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Antcolony (PvP pivot)",
+      "path": "/j/antcolony/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 62,
+      "lines_changed_today": 55,
+      "lines_changed_this_week": 20607,
+      "handoff_excerpt": "Session 2026-05-08: cross-OS smoke test against pixie VPS — TCP path GREEN end-to-end over real internet (~90ms handshake), but Windows-to-Linux sim determinism RED. State hashes diverge within 5 sim ticks (kokonoe 0x14494faf24a1499 vs pixie 0x3e46e1e70b8a5ef0). Same source, same seed, same arena. Suspected root cause: f32 transcendentals (sin/cos/sqrt/powf) using platform libm (Microsoft CRT vs glibc) differ by 1-2 ulps.",
+      "milestones_hit": ["TCP path verified end-to-end across the public internet between kokonoe (Win) and pixie VPS (Linux) — handshake + protocol exchange GREEN"],
+      "blockers": ["Cross-OS sim determinism RED — Win-to-Linux/Proton-GE PvP broken until libm-port audit lands. Win-to-Win LAN/Tailscale PvP still fine. Mixed-OS lobbies cannot ship until fixed."]
+    },
+    {
+      "name": "Aether",
+      "path": "/j/aether/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 11,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 33485,
+      "handoff_excerpt": "Audit clean: errors 0, status OK, 55/55 unit tests pass. Roadmap v2 witness count climb. Autonomous roadmap sweep complete.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Candle Fork",
+      "path": "/j/candle-src/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 9,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 193,
+      "handoff_excerpt": "7B QLoRA on 8GB Ampere rock-solid. TDPI loop has stress-tested four perf hypotheses, rejected three.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "claudeai workbench",
+      "path": "/j/claudeai/",
+      "language_primary": "mixed",
+      "commits_today": 0,
+      "commits_this_week": 14,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 8121,
+      "handoff_excerpt": "Pixiedust pre-prod red team consolidated; recon-sidecar-rs Rust rewrite shipped to cnc-server end-to-end (3,377 LOC, monitor mode live-verified against PosadaPines on RTL8821AU); moltbook auth-scope solved (follow API takes NAME not UUID); reciprocation watcher deployed as systemd timer.",
+      "milestones_hit": [],
+      "blockers": ["rtw_8821au driver wedges on monitor↔managed flips → AR9271 or RTL8812AU recommended for clean offensive wifi work"]
+    },
+    {
+      "name": "distcc-for-claw",
+      "path": "/j/distcc for claw project/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 127,
+      "handoff_excerpt": "OpenClaw fleet end-to-end on cnc-server: gateway on Opus 4.7 OAuth, 9 subagents wired, tiered memory live.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "flightsuite",
+      "path": "/j/flightsuite/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 163,
+      "handoff_excerpt": "Scaffolding live. 2026-05-02 clean-room provenance honesty checkpoint, no code touched.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "FLIR / blackbody",
+      "path": "/j/flir/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 9,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 3280,
+      "handoff_excerpt": "Initial scaffolding session done. CLEANROOM.md + LEGAL.md in place; pickup awaits next session.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Incognito CAD Tool",
+      "path": "/j/icognito cad tool/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 807,
+      "handoff_excerpt": "Reassessment session 2026-05-03. Picks up via Claude Code CLI.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "llm-wiki",
+      "path": "/j/llm-wiki/",
+      "language_primary": "markdown",
+      "commits_today": 0,
+      "commits_this_week": 16,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 20121,
+      "handoff_excerpt": "Personal LLM-practice vault. Recently added: x-posting-lexical-keyboard-events pattern, public-apis-curated source page.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "OpenClaw model-load optimizer",
+      "path": "/j/openclaw model load optimizer/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 119,
+      "handoff_excerpt": "Code complete, awaiting P100 deployment.",
+      "milestones_hit": [],
+      "blockers": ["Awaiting P100 deployment"]
+    },
+    {
+      "name": "Pledge & Crowns",
+      "path": "/j/pledgeandcrowns/",
+      "language_primary": "typescript",
+      "commits_today": 0,
+      "commits_this_week": 81,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 25259,
+      "handoff_excerpt": "Full v1 roadmap shipped end-to-end including audio score, curriculum gating, wasm rendering fix, wasm save persistence.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "visionsystem",
+      "path": "/j/visionsystem/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 3,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 116931,
+      "handoff_excerpt": "MVP live: face-id + pink-square verified on C922 (2026-05-03). 100/100 face_hits via FaceIdPerceiver (ArcFace ResNet50, cosine 0.45), 21 pink_hits in active hold window.",
+      "milestones_hit": [],
+      "blockers": ["tract fails on textual encoder Range op — CLIP-text image search and OCR blocked until ort 2.0.0-rc.10 wires through"]
+    },
+    {
+      "name": "wages of war",
+      "path": "/j/wages of war/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 9,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 1698,
+      "handoff_excerpt": "Wall data extraction + wall-rendering pass landed (2026-05-03).",
+      "milestones_hit": [],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    }
+  ],
+  "strategic_events": [
+    {
+      "date": "2026-05-08",
+      "type": "milestone",
+      "detail": "Antcolony PvP cross-internet smoke test: TCP transport verified end-to-end between kokonoe (Win) and pixie VPS (Linux, 207.244.232.227:17001) — handshake + protocol exchange GREEN over the public internet."
+    },
+    {
+      "date": "2026-05-08",
+      "type": "blocker",
+      "detail": "Antcolony cross-OS sim determinism RED — f32 transcendental drift (Microsoft CRT vs glibc libm) desyncs Win↔Linux peers within 5 sim ticks. Mixed-OS lobbies cannot ship until libm-port audit lands. Win↔Win PvP unaffected."
+    },
+    {
+      "date": "2026-05-08",
+      "type": "knowledge",
+      "detail": "Engineering decision queued: replace f32::sin/cos/sqrt/powf in antcolony sim hot path with libm crate (pure-Rust port) for bit-identical cross-OS results. Estimated ~3h audit + replacement, ~1.2× perf cost on transcendentals."
+    }
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Same uploader pattern as previous days: nearly every repo has a single 'Initial commit - uploaded via github-uploader-buildout' commit timestamped today (CT=1, LT=2). These are automated repo-init churn from Matt's github-uploader job, not real activity — commits_today/lines_changed_today set to 0 for those repos. Only real today-activity: antcolony (1 substantive HANDOFF commit, 55 LOC, documenting the cross-internet smoke test result). Health harvest intentionally omitted — handled on-device by iOS app via HealthKit. Client harvest skipped — no Gmail/Calendar connector on kokonoe."
+}

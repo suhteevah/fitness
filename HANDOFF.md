@@ -1,13 +1,27 @@
 # HANDOFF.md — Session State
 
-**Last Updated:** 2026-05-02
-**Status:** 🟢 APP RUNNING ON iPhone 17 PRO MAX — ABACUS WIRED — HEALTH PIPELINE FINALIZED
+**Last Updated:** 2026-05-09
+**Status:** 🟢 APP RUNNING + 8.5 YRS HEALTHKIT HISTORY BUNDLED
 
 ## Project Status
 
 App launches clean on Matt's iPhone 17 Pro Max. Dashboard shows seeded P1/P2/P3 trajectory + live Abacus finance. Revenue tab pulls bank-feed transactions across All Orgs / per-org with 7/30/90/365d window picker. Meal recommender draws from 32 templates (V5/V6 actuals + 14 muscle-build expansions including 2 carb-tolerant post-strength refeed options). Health data flows on-device via HealthKit; project-status harvested nightly by kokonoe scheduled task.
 
-## What Was Done This Session
+## What Was Done This Session (2026-05-09)
+
+### Full HealthKit export ingested
+- Matt dropped `healthkit complete.zip` (47 MB, 2,498,115 records, 8.5 yrs back to 2017-10) in the project root.
+- Extracted to `data/healthkit-export/` (gitignored — 650 MB raw CSVs).
+- Wrote `scripts/aggregate-healthkit-export.py` — streams every CSV, never loads a whole file. Emits 3 rollups in `data/healthkit-aggregates/`:
+  - `daily.json` (3,126 days, 800 KB) — per-day avg HR/RHR/HRV/RR/SpO2/VO2Max/wristTemp/bodyMass + sums for steps/dist/kcal/exerciseMin + sleep stages + workout list
+  - `weekly.json` (449 ISO-weeks, 84 KB)
+  - `monthly.json` (105 months, 22 KB)
+- Sanity check: 2026-W18 = 17 workouts / 5,154 active kcal / RHR 64 / HRV 58 (matches Matt's training spike). Earliest record 2017-10 (iPhone-only sleep).
+- Bundled the 3 JSONs into the iOS app at `PerformanceTracker/Resources/HistoricalHealth/`. Added to `project.yml` resources.
+- Wrote `Services/HistoricalHealthLoader.swift` — `HistoricalHealthLoader.load(.weekly)` returns `[Bucket]`, decoded once and cached. Convenience methods: `recentWeeks(N)`, `days(from:to:)`.
+- **Pending on iMac:** run `xcodegen generate` so the new resource folder + Swift file land in the Xcode project, then rebuild + redeploy.
+
+## What Was Done Prior Session (2026-05-02)
 
 ### Crash bugs killed
 - **SwiftData iOS 26 dictionary trap** in `Assessment.categoryGradesRaw.getter`. Rewrote `Assessment.swift` to store `categoryGradesJSON / recommendationsJSON / dataSourcesJSON` as JSON-encoded `String`, decode lazily via computed properties.

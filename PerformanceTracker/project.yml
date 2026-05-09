@@ -31,6 +31,7 @@ targets:
       - path: Shared
     resources:
       - PerformanceTracker/Assets.xcassets
+      - PerformanceTracker/Resources/HistoricalHealth
     # NOTE: do NOT add an `info:` block here. xcodegen treats `info:` as
     # "I will generate this Info.plist" and OVERWRITES the hand-crafted one
     # on every regen, stripping NSHealthShareUsageDescription and aborting
