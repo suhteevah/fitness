@@ -1,0 +1,460 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-10",
+  "captured_at": "2026-05-10T23:05:00-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 222,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts. Next: read chip XID 0x40 + variant init. (HANDOFF unchanged since 2026-04-19.)",
+      "milestones_hit": [],
+      "blockers": ["RTL8168 RX blocked — chip fires zero RX interrupts, DHCP times out"]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "Hosted Corpo API live at https://wraith-browser.vercel.app and direct VPS at 207.244.232.227:8080. AGPL repo + proprietary api-server tier both deploying clean. FR queue cleared except cross-repo FR-4. (HANDOFF unchanged since 2026-05-02.)",
+      "milestones_hit": [],
+      "blockers": ["No free hostname picked for Caddy/TLS — Vercel rewrites cover REST but WebSocket upgrades + cleartext Vercel→VPS leg need real TLS on the VPS", "FR-4 cross-repo wraith-transport bridge pending ClaudioOS session"]
+    },
+    {
+      "name": "Kalshi Trader v7 (Pixiedust)",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 12,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 2863,
+      "handoff_excerpt": "NO-SHIP. Pre-prod red team consolidated into NEXT-UP.md: 7 P0s, 5 P1s, 5 P2s, 3 P3s. Highest-leverage P0s: missing client_order_id orphans live positions; TOCTOU on daily_cost/open_positions/balance breaches daily cap; nil-UUID Enterprise JWT mintable from create_owner_token. (HANDOFF unchanged from 2026-05-09 status.)",
+      "milestones_hit": [],
+      "blockers": [">=7 P0 red-team defects in trading + auth surface — production gated until P0+P1 fixes ship"]
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 36,
+      "handoff_excerpt": "Orchestrator REVIVED after 3 wks dead — sniper-mode wait elapsed, Priyasha lead dead. 30min poll + 2h scrape, sniper mode, max 5-10/day hand-curated apps.",
+      "milestones_hit": ["Orchestrator revived after 3-week pause — sniper mode resumed"],
+      "blockers": []
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "rust",
+      "commits_today": 2,
+      "commits_this_week": 9,
+      "lines_changed_today": 1282,
+      "lines_changed_this_week": 1715,
+      "handoff_excerpt": "Healthy. 7 production deploys this session, all Ready. CNC scraper redeployed and running clean (793 tweets/run). Tweet rendering — root-cause fixes: long-form note tweets truncated (legacy.full_text capped at ~280); plus three more parser bugs + one UI behaviour gap.",
+      "milestones_hit": ["Tweet rendering hardening — long-form note tweets, replies/quotes parser fixes shipped across 7 prod deploys", "OpenSky OAuth integration + dynamic queryId rotation handler landed"],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 1,
+      "commits_this_week": 8,
+      "lines_changed_today": 418,
+      "lines_changed_this_week": 2152,
+      "handoff_excerpt": "App live on iPhone 17 Pro Max. Dashboard shows seeded P1/P2/P3 trajectory + live Abacus finance. Revenue tab pulls bank-feed transactions across All Orgs / per-org with 7/30/90/365d window picker. Meal recommender draws from 32 templates (V5/V6 + 14 muscle-build expansions including 2 carb-tolerant post-strength refeeds). Health flows on-device via HealthKit; project-status harvested nightly by kokonoe.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Antcolony (PvP pivot)",
+      "path": "/j/antcolony/",
+      "language_primary": "rust",
+      "commits_today": 11,
+      "commits_this_week": 62,
+      "lines_changed_today": 1020,
+      "lines_changed_this_week": 13631,
+      "handoff_excerpt": "Phase 1 code-complete, smoke launch pending. All 5 cliff/cap fixes from the 2026-05-09 postmortem are committed and 144 unit tests pass. The 2yr 10-species smoke that validates the fixes has not yet been launched.",
+      "milestones_hit": ["Phase 1 sim foundation: all 5 postmortem fixes + food cap shipped, 144 unit tests pass"],
+      "blockers": ["2yr 10-species defensible-biology smoke not yet launched — outreach roadmap still gated until smoke clears"]
+    },
+    {
+      "name": "Aether",
+      "path": "/j/aether/",
+      "language_primary": "rust",
+      "commits_today": 7,
+      "commits_this_week": 25,
+      "lines_changed_today": 4193,
+      "lines_changed_this_week": 36613,
+      "handoff_excerpt": "Audit: 141/196 (71%) roadmap items witnessed. +18 from 123/196 baseline across two autonomous sessions today. 0 errors, all workspace tests green, honesty scan reports only known-carry-over stubs. Path B materially complete; Path A open with two real wins (cross-fn inlining + matmul auto-tune); 10 cross-cutting items landed across paths C/F + production hardening.",
+      "milestones_hit": ["Roadmap v4 audit: +18 items witnessed today → 141/196 (71%), Path B materially complete", "Cross-fn inlining + matmul auto-tune landed on Path A", "10 cross-cutting items shipped across paths C/F + production hardening"],
+      "blockers": []
+    },
+    {
+      "name": "Candle Fork",
+      "path": "/j/candle-src/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 40,
+      "handoff_excerpt": "7B QLoRA on 8GB Ampere remains rock-solid; TDPI loop has stress-tested four perf hypotheses, rejected three. 5.5 tok/s baseline is the local optimum on this hardware. (HANDOFF unchanged since 2026-05-01.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "claudeai workbench",
+      "path": "/j/claudeai/",
+      "language_primary": "mixed",
+      "commits_today": 1,
+      "commits_this_week": 14,
+      "lines_changed_today": 86,
+      "lines_changed_this_week": 8857,
+      "handoff_excerpt": "Cross-unit network RESTORED via TP-Link rollback. TP-Link back in place as dedicated point-to-point bridge across the duplex shared wall. AC-1304 mesh fleet sidelined — Matt wants to wipe all 5 nodes clean and rebuild as in-unit dumb-AP-with-mesh distribution, with one node cabled to Sashawall LAN as the wired uplink. Shelved for now.",
+      "milestones_hit": ["TP-Link rollback complete — cross-unit network restored, AC-1304 fleet shelved pending wipe-and-rebuild"],
+      "blockers": []
+    },
+    {
+      "name": "distcc-for-claw",
+      "path": "/j/distcc for claw project/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "OpenClaw fleet end-to-end on cnc-server: gateway on Opus 4.7 OAuth, 9 subagents wired, tiered memory live, autostart on boot. (HANDOFF unchanged since 2026-05-02.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "flightsuite",
+      "path": "/j/flightsuite/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 163,
+      "handoff_excerpt": "Scaffolding live. 2026-05-02 clean-room provenance honesty checkpoint, no code touched.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "FLIR / blackbody",
+      "path": "/j/flir/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 2584,
+      "handoff_excerpt": "P3 RE workbench operational. End-to-end Ghidra harness ran against InfiRay P2 Pro APK + HIKMICRO Viewer APK. CLEANROOM.md + LEGAL.md in place. (HANDOFF unchanged since 2026-05-02.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Incognito CAD Tool",
+      "path": "/j/icognito cad tool/",
+      "language_primary": "rust",
+      "commits_today": 2,
+      "commits_this_week": 16,
+      "lines_changed_today": 1664,
+      "lines_changed_this_week": 19529,
+      "handoff_excerpt": "In progress. v1.0 ship zip is built and tests are green, but Matt's last visual report on the .lbrn2 ('still stacked') is unresolved despite the data showing 104 distinct circle positions across 3 nested wrap-face regions. Awaiting fresh screenshot or hover-coord readout to confirm whether it's a stale-file/cache issue or an actual rendering bug.",
+      "milestones_hit": ["v1.0 ship zip built; tests green; 109/109 (now 16-commit cadence) across 3 nested wrap-face regions"],
+      "blockers": ["Stacked .lbrn2 visual report from Matt unresolved — needs fresh screenshot or hover-coord readout to confirm stale-file/cache vs real rendering bug"]
+    },
+    {
+      "name": "llm-wiki",
+      "path": "/j/llm-wiki/",
+      "language_primary": "markdown",
+      "commits_today": 2,
+      "commits_this_week": 13,
+      "lines_changed_today": 27253,
+      "lines_changed_this_week": 30450,
+      "handoff_excerpt": "Personal LLM-practice vault. Today's commits are bulk ingest pulling fresh HANDOFFs across the fleet — 27k+ LOC churn is content snapshot scale, not refactoring.",
+      "milestones_hit": ["Bulk ingest pass — 27k+ LOC of fresh HANDOFF content folded back into the wiki"],
+      "blockers": []
+    },
+    {
+      "name": "OpenClaw model-load optimizer",
+      "path": "/j/openclaw model load optimizer/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 117,
+      "handoff_excerpt": "Code complete, awaiting P100 deployment. (HANDOFF unchanged since 2026-04-16.)",
+      "milestones_hit": [],
+      "blockers": ["Awaiting P100 deployment"]
+    },
+    {
+      "name": "Pledge & Crowns",
+      "path": "/j/pledgeandcrowns/",
+      "language_primary": "typescript",
+      "commits_today": 0,
+      "commits_this_week": 28,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 2734,
+      "handoff_excerpt": "Full v1 roadmap shipped end-to-end including audio score, curriculum gating, wasm rendering fix, wasm save persistence. (HANDOFF unchanged since 2026-05-03.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "visionsystem",
+      "path": "/j/visionsystem/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 8,
+      "lines_changed_today": 88,
+      "lines_changed_this_week": 118725,
+      "handoff_excerpt": "Round 15.3 — 2026-05-10 (history rewrite + gait honesty). Code is on GitHub for the first time (origin/main was empty across all prior pushes — they all 408'd silently because of the 100MB/file ceiling). Live system unchanged: r50 + 200-vec enrollment + top-5 matcher, supervisor pid 156328 still ticking.",
+      "milestones_hit": ["History rewrite landed: code shipped to GitHub for first time (every prior push had 408'd silently at 100MB/file ceiling)"],
+      "blockers": ["tract fails on textual encoder Range op — CLIP-text image search and OCR blocked until ort 2.0.0-rc.10 wires through"]
+    },
+    {
+      "name": "wages of war",
+      "path": "/j/wages of war/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 1696,
+      "handoff_excerpt": "Wall data extraction + wall-rendering pass landed (2026-05-03). Needs a visual verification pass to confirm the segment-to-slot mapping. (HANDOFF unchanged since 2026-05-03.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "abacus-meatspace",
+      "path": "/j/abacus-meatspace/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 16,
+      "handoff_excerpt": "PerformanceTracker integration v1 live at https://cnc-server.tailb85819.ts.net/abacus/api/v1/. systemd unit abacus-api.service running on CNC. /clients + /kalshi/pnl deferred. (HANDOFF unchanged since 2026-04-25.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "claude-optimize-my-week",
+      "path": "/j/claude - optimize my week/",
+      "language_primary": "mixed",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 16,
+      "handoff_excerpt": "Session complete. TRW feed diversity built and handed off. Cross-project audit done. (HANDOFF unchanged since 2026-04-12.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "clawhub customer hunter",
+      "path": "/j/clawhub customer hunter/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 16,
+      "handoff_excerpt": "RANV pitchkit shipped, OpenClaw fleet flipped to Anthropic with proper tier mapping. (HANDOFF unchanged since 2026-04-25.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "exploitpipe",
+      "path": "/j/exploitpipe/",
+      "language_primary": "rust",
+      "commits_today": 19,
+      "commits_this_week": 28,
+      "lines_changed_today": 7949,
+      "lines_changed_this_week": 15285,
+      "handoff_excerpt": "Plan 1a delivered. Foundation phase complete; all known follow-ups closed (race-fix, semgrepignore, plan canonical-content patches). Plan 1b spec written and committed (5792c4d). 32 commits on private remote. Plan 1b implementation plan (writing-plans output) was started but not written to disk due to two consecutive net hiccups.",
+      "milestones_hit": ["Plan 1a delivered — foundation phase complete, race-fix + semgrepignore + canonical-content follow-ups closed", "Plan 1b spec written and committed (5792c4d), 32 commits on private remote"],
+      "blockers": ["Plan 1b implementation plan not yet written to disk — two net hiccups in a row interrupted writing-plans; resume by re-invoking writing-plans against the Plan 1b spec"]
+    },
+    {
+      "name": "github SME",
+      "path": "/j/github SME/",
+      "language_primary": "mixed",
+      "commits_today": 0,
+      "commits_this_week": 8,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 16,
+      "handoff_excerpt": "SCAFFOLDING — Skill designed, architecture defined, awaiting first course package from client. 7 GitHub-tool-focused courses across 4 domains. (HANDOFF unchanged since 2026-03-29.)",
+      "milestones_hit": [],
+      "blockers": ["Awaiting first course package from client"]
+    },
+    {
+      "name": "school",
+      "path": "/j/school/",
+      "language_primary": "mixed",
+      "commits_today": 0,
+      "commits_this_week": 0,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 0,
+      "handoff_excerpt": "In progress — strategic plan locked in, waiting on Matt to start Phase 1 (FSA ID setup) at studentaid.gov. Game-theoried full funding strategy from FAFSA timing through SBIR upside with $/hour EV math. 2025 AGI estimate: -$4,250. Not a git repo yet.",
+      "milestones_hit": [],
+      "blockers": ["Matt-action gated: Phase 1 (FSA ID setup at studentaid.gov) not yet started"]
+    },
+    {
+      "name": "world-mode",
+      "path": "/j/world-mode/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "Massive ghost placement grind session (2026-03-30). ~17,600+ ghosts built. Ghost count ~24,797 (last confirmed). wm-factorio docker container may need restart. (HANDOFF unchanged since 2026-03-30.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "moltbook-cli",
+      "path": "/j/moltbook-cli/",
+      "language_primary": "rust",
+      "commits_today": 2,
+      "commits_this_week": 2,
+      "lines_changed_today": 4894,
+      "lines_changed_this_week": 4894,
+      "handoff_excerpt": "Working — autonomous Rust agent live on Moltbook, posting + replying + monitoring every 30 min via cnc systemd timer. Full python-heartbeat → Rust port complete: a single Rust binary 'mb' now drives the same workflows from a 30-min systemd timer. Modules added: verify, state, queue, more.",
+      "milestones_hit": ["Full python-heartbeat → Rust port — single Rust binary 'mb' replaces the long-running python container; 30-min systemd timer on cnc drives posting + replying + monitoring"],
+      "blockers": []
+    },
+    {
+      "name": "nightdrive",
+      "path": "/j/nightdrive/",
+      "language_primary": "mixed",
+      "commits_today": 0,
+      "commits_this_week": 0,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 0,
+      "handoff_excerpt": "SCAFFOLD — vision locked, no code written yet. Autonomous synthwave generation + publishing pipeline: composition → audio render → mastering → cover art → animated video → YouTube upload, no human in the loop. Two revenue plays from one codebase: VOD channel(s) + live RTMP stream.",
+      "milestones_hit": ["New project scaffolded — autonomous synthwave / coding-chill VOD + live RTMP pipeline vision locked"],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from Claude Code CLI on kokonoe — client data not harvestable in this routine."
+    }
+  ],
+  "strategic_events": [
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "exploitpipe Plan 1a delivered — foundation phase complete with race-fix, semgrepignore, and canonical-content follow-ups closed; Plan 1b spec written and committed (5792c4d). 19 commits today, 32 total on private remote since project inception yesterday."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "Aether roadmap v4: +18 items witnessed today across two autonomous sessions → 141/196 (71%). Path B materially complete; cross-fn inlining + matmul auto-tune landed on Path A; 10 cross-cutting items across paths C/F + production hardening. 0 errors, all workspace tests green."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "Antcolony Phase 1 sim foundation code-complete — all 5 cliff/cap fixes from the 2026-05-09 catastrophic-smoke postmortem are committed + food cap shipped; 144 unit tests pass. 2yr 10-species defensible-biology smoke is the validation gate, not yet launched."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "The Right Wire — tweet rendering hardening session: 4 parser bugs + 1 UI behaviour gap fixed (long-form note-tweet truncation, replies/quotes parsing), 7 production deploys all Ready. OpenSky OAuth integration + dynamic queryId rotation handler also landed. CNC scraper redeployed clean at 793 tweets/run."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "visionsystem Round 15.3 — code shipped to GitHub for the first time after history rewrite. Every prior push had 408'd silently at GitHub's 100 MB/file ceiling (origin/main empty across all attempts). Live r50 + 200-vec enrollment + top-5 matcher unchanged, supervisor pid 156328 still ticking."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "moltbook-cli — full python-heartbeat → Rust port. Long-running python container retired entirely; single Rust binary 'mb' now drives posting + replying + monitoring from a 30-min systemd timer on cnc. Modules added: verify (lobster-math captcha solver), state, queue, plus more."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "claudeai workbench — TP-Link rollback complete, cross-unit network restored. AC-1304 mesh fleet shelved for wipe-and-rebuild (planned: in-unit dumb-AP-with-mesh distribution, one node cabled to Sashawall LAN as wired uplink). Yesterday's 6% kokonoe→internet loss / 3% mesh hop loss / broken Discord-voice blocker resolved."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "Incognito CAD Tool — v1.0 ship zip built and 109+ tests green. Data shows 104 distinct circle positions across 3 nested wrap-face regions, but Matt's last visual report ('still stacked') is unresolved — awaiting fresh screenshot or hover-coord readout to confirm cache-issue vs real rendering bug."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "Job Hunter MCP orchestrator revived after 3-week pause — sniper-mode wait elapsed, Priyasha lead dead. 30-min poll + 2h scrape resumed, max 5-10/day hand-curated apps."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "milestone",
+      "detail": "nightdrive — new project scaffolded. Autonomous synthwave / coding-chill audio + retrowave-visualizer video pipeline (composition → render → master → cover art → animated video → YouTube upload). Two revenue plays from one codebase: VOD channels + live RTMP stream."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "blocker",
+      "detail": "exploitpipe — Plan 1b implementation plan started in writing-plans but never written to disk; two consecutive net hiccups interrupted. Resume by re-invoking writing-plans against the committed Plan 1b spec (5792c4d)."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "blocker",
+      "detail": "Incognito CAD Tool — stacked-circles .lbrn2 visual mismatch unresolved. Code-side data shows 104 distinct circle positions across 3 nested wrap-face regions; Matt's screen shows them still stacked. Blocked on customer-side artifact (fresh screenshot or hover-coord readout) before deeper investigation."
+    },
+    {
+      "date": "2026-05-10",
+      "type": "knowledge",
+      "detail": "llm-wiki — 27k+ LOC bulk-ingest pass folded fresh HANDOFF content from across the fleet back into the wiki. Scale is content-snapshot, not refactoring."
+    }
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Massive ship day. Real (non-uploader) commits today: exploitpipe (19/7,949 LOC — Plan 1a delivered + Plan 1b spec), antcolony (11/1,020 — Phase 1 sim postmortem fixes + food cap), aether (7/4,193 — +18 roadmap items witnessed), moltbook-cli (2/4,894 — python→Rust port), incognito-cad (2/1,664 — v1.0 ship zip, stacked-lbrn2 mystery), llm-wiki (2/27,253 — bulk ingest), the right wire (2/1,282 — tweet parser hardening + OpenSky + queryId), claudeai (1/86 — TP-Link rollback), visionsystem (1/88 — first successful GitHub push via history rewrite), job-hunter (1/2 — HANDOFF revival edit), performancetracker (1/418 — schema/data routine work). The github-uploader pattern still creates a daily 'Initial commit' on most repos (CT=1, LT=2); those have been zeroed out in commits_today / lines_changed_today and recorded only when they reflect real activity. Two new projects added: moltbook-cli (existed but had no recent activity in prior reports), nightdrive (greenfield scaffold). Two NEW blockers added today: exploitpipe Plan 1b plan-on-disk gap + incognito-cad stacked-lbrn2 customer-side artifact wait. One blocker RESOLVED: claudeai cross-unit network degradation (TP-Link rollback). Health harvest intentionally omitted — handled on-device by iOS app via HealthKit. Client harvest skipped — no Gmail/Calendar connector on kokonoe."
+}
