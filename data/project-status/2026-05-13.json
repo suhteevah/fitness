@@ -1,0 +1,541 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-13",
+  "captured_at": "2026-05-13T23:00:00-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "J:/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# Session Handoff — 2026-04-19\n\n## Last Updated\n2026-04-19\n\n## Project Status\n🟡 **RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked.** DHCP times out because chip f",
+      "milestones_hit": [
+        "-- <kernel-elf>`. - **Limine binaries** live at `/tmp/limine` (cloned from `v7.x-binary` branch). Versio",
+        "108 +                \"MMIO decoded; {} live regs in fi           +rst {} bytes, last live @0x{:03x}\",",
+        "112 +                \"MMIO decoded; {} live regs in 0x           +{:03x}..0x{:03x}, last live @0x{:03x}",
+        "112 -                \"MMIO decoded; {} live regs in fi           -rst {} bytes, last live @0x{:03x}\",",
+        "; 36 live regs in first 256 bytes, last live @0x0fc   wifi.BAR0 IO 0x0000000000004000 wifi.BAR2 MMIO64",
+        "buffer, splash - Fallback terminal with live keyboard echo  ### Working in QEMU but disabled on real HW",
+        "come=readonly-probe: MMIO   decoded; 36 live regs in first 256 bytes, last live @0x0fc   wifi.BAR0 IO 0x",
+        "egs in fi           +rst {} bytes, last live @0x{:03x}\",       109 +                readings       110 +"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "J:/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 5,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 10,
+      "handoff_excerpt": "# Wraith Browser — Session Handoff\n\n## Last Updated\n2026-05-02\n\n## Project Status\n🟢 **Hosted Corpo API live** at `https://wraith-browser.vercel.app` (Vercel TLS-proxied) and `http://207.244.232.227:80",
+      "milestones_hit": [
+        "## Project Status 🟢 **Hosted Corpo API live** at `https://wraith-browser.vercel.app` (Vercel TLS-proxie",
+        "**BR-2** Cross-compile release pipeline shipped: `scripts/build-release.sh` + `.ps1` wrapper, parallel Dock",
+        ",demo-script,recording-setup}.md`. Site live at `https://wraith-browser.vercel.app`. - **Anthropic model",
+        "T endpoints + WS) to the Pixiedust VPS. Live at **`https://wraith-browser.vercel.app`** (Vercel TLS-prox",
+        "d. See `NEXT-UP.md` BR-4 / BR-5. - Wire live Stripe keys when ready (currently `ENABLE_BILLING=false`).",
+        "fied end-to-end on both URLs.  ### What shipped  - `crates/api-server/Dockerfile` — multi-stage build, `rus",
+        "prise docs site (6 pages, all complete, live at wraith-browser.vercel.app)  ## Current State  | Componen",
+        "that.  ## Session Summary — 2026-05-01  Deployed the proprietary corpo tier (`crates/api-server/`, `wraith-e"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Kalshi Trader v7",
+      "path": "J:/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 12,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 1695,
+      "handoff_excerpt": "",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "J:/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 0,
+      "commits_this_week": 4,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 13756,
+      "handoff_excerpt": "# CLAUDE CODE HANDOFF — Autonomous Job Hunter\n# Read this FIRST. Then read J:\\job-hunter-mcp\\skills\\SKILL.md for full details.\n# Last updated: 2026-05-11 — X Jobs pipeline live, SpaceX playbook live, ",
+      "milestones_hit": [
+        "- **State, filters, reports, shortlist live in `.pipeline/`** at project root - **Hyper-selective filte",
+        "azy-click is added. - **SpaceX playbook live** at `playbooks/spacex.md`, `_index.md` updated.   - 1,585",
+        "board discovery  ### ACTIVE LEADS **No live leads as of 2026-05-10.** All prior proposals went silent d",
+        "el. 18 connects remaining. **PostgreSQL live** on localhost:5432 (Docker). SQLite still primary for scri",
+        "had been Exited 4 weeks. Docker Desktop launched, container restarted, healthy at `localhost:8191`. Required",
+        "he real killer was the pythonw bug that landed a few hours later. Subprocess timeout fine at 600s but coul",
+        "t updated: 2026-05-11 — X Jobs pipeline live, SpaceX playbook live, orchestrator running 4 boards  ## TH",
+        "— X Jobs pipeline live, SpaceX playbook live, orchestrator running 4 boards  ## THINGS A FUTURE SESSION"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "The Right Wire",
+      "path": "J:/political news app/",
+      "language_primary": "typescript",
+      "commits_today": 0,
+      "commits_this_week": 6,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 1290,
+      "handoff_excerpt": "# HANDOFF — Tweet rendering hardening + OpenSky OAuth + dynamic queryId (2026-05-10)\n\n## Last Updated\n2026-05-10\n\n## Project Status\n🟢 Healthy. 7 production deploys this session, all Ready. CNC scraper",
+      "milestones_hit": [
+        "ettled` alongside adsb.fi and airplanes.live, results merged by ICAO hex. Better coverage for Asia/Russi",
+        "ide adsb.fi and airplanes.live, results merged by ICAO hex. Better coverage for Asia/Russia/Africa where r"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "J:/fitness/",
+      "language_primary": "swift",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 1718,
+      "handoff_excerpt": "# HANDOFF.md — Session State\n\n**Last Updated:** 2026-05-09\n**Status:** 🟢 APP RUNNING + 8.5 YRS HEALTHKIT HISTORY BUNDLED\n\n## Project Status\n\nApp launches clean on Matt's iPhone 17 Pro Max. Dashboard s",
+      "milestones_hit": [
+        "e strings present). - Abacus connection live over Tailscale; 308 bank transactions reachable; \"All Organ",
+        "locking Issues  None. All session goals shipped.  ## What's Next  1. **Verify tonight's harvest fires.** Ch",
+        "oard shows seeded P1/P2/P3 trajectory + live Abacus finance. Revenue tab pulls bank-feed transactions ac"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "abacus-meatspace",
+      "path": "J:/abacus-meatspace/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# Abacus — CNC-Server Deployment Handoff\n\n**Session:** 2026-04-23 → early 2026-04-24, then 2026-04-25 (integration sprint)\n**Author:** Opus 4.7 (Claude Code session on kokonoe)\n\n> **✅ PerformanceTrack",
+      "milestones_hit": [
+        "Integration API (2026-04-25)  ### What shipped this session - **New module:** `abacus/api/integrations.py`",
+        "ion request fulfilled (2026-04-25).** > Live at `https://cnc-server.tailb85819.ts.net/abacus/api/v1/`. A",
+        "le (medium priority) - Frontend not yet deployed on CNC. Two paths:   - (a) Build static files with `npm run",
+        "posted, P&L/Balance Sheet/Trial Balance live via REST API - API + frontend running at **http://localhost"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "aether",
+      "path": "J:/aether/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 21,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 13012,
+      "handoff_excerpt": "# Aether — Session Handoff\n\n## Last Updated\n2026-05-10 (Path A pickup + cross-cutting batch 2 — 18 items shipped today)\n\n## Project Status\n🟢 **Audit: 141/196 (71%) roadmap items witnessed.** +18 from ",
+      "milestones_hit": [
+        "ckup + cross-cutting batch 2 — 18 items shipped today)  ## Project Status 🟢 **Audit: 141/196 (71%) roadmap",
+        "cord for 81264f4.  **Honest scaffold-vs-shipped notes:** - v3's drives (regalloc/vectorize/lifetimes) repor",
+        "e:line verification is the only reason \"shipped\"   doesn't drift from \"true.\" bench-runner correctly suppre",
+        "tmul auto-tune); 10 cross-cutting items landed across paths C/F + production hardening.  ``` Phase 6-14: 7"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "antcolony",
+      "path": "J:/antcolony/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 40,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 7215,
+      "handoff_excerpt": "# HANDOFF.md — Phased Implementation Spec\n\nThis document contains everything needed to implement the ant colony simulation from scratch. Each phase is self-contained with clear inputs, outputs, and ac",
+      "milestones_hit": [
+        "### N2: Headless lockstep transport -- shipped, loopback green  - New crate: `crates/antcolony-net/`. Work",
+        "(see the separate note in MEMORY) would live near here. 4. **Phase 8 — full game mode.** Grid-based map",
+        "**Working:** - All 5 postmortem fixes shipped + tested. 144 lib tests pass on kokonoe. - Workspace builds",
+        "- The 2yr 10-species smoke has NOT been launched. Two attempts were aborted mid-launch (see Notes). - Phase",
+        "10+ approaches; Rust trainer foundation shipped; needs population-based RL or curriculum to break ceiling.",
+        "7 lib tests green - 10/14 Phase B hooks shipped + cited - 8 species loaded + validated - MLP_v1 at 45.7% me",
+        "Built with `default_edge_ports` so the live editor can rewire it. - **Two-colony sim constructor** (`si",
+        "Default `Climate.starting_day_of_year` shipped as `150` (mid-spring) rather than the spec's `60` so the 41"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "candle-src",
+      "path": "J:/candle-src/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# Candle Fork Handoff\n\n## Last Updated\n2026-05-01\n\n## Project Status\n🟢 **7B QLoRA on 8GB Ampere remains rock-solid; TDPI loop has now stress-tested four perf hypotheses and rejected three of them. 5.5",
+      "milestones_hit": [
+        ". The TDPI loop caught them before they shipped to a real training run.  ### Code changes (commit `279c210`",
+        "andle.git`) for the real fork. Branches live there. - **Local branch `matt-voice-lora` is buried under g"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "claude - optimize my week",
+      "path": "J:/claude - optimize my week/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# HANDOFF — Optimize My Week\n\n## Last Updated\n2026-04-12\n\n## Project Status\n🟢 Session complete. TRW feed diversity built and handed off. Cross-project audit done.\n\n## What Was Done This Session\n\n### T",
+      "milestones_hit": [
+        "## What's Next 1. Get Wraith API server deployed (TRW dependency) 2. Run migration 011 + seed stale sources"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "claudeai",
+      "path": "J:/claudeai/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 8,
+      "lines_changed_today": 156,
+      "lines_changed_this_week": 2698,
+      "handoff_excerpt": "# HANDOFF.md — claudeai workbench\n\n## Last Updated\n2026-05-10 (TP-Link rollback complete — AC-1304 fleet shelved pending wipe-and-rebuild)\n\n## Project Status\n🟡 **Cross-unit network restored via TP-Lin",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "clawbot search",
+      "path": "J:/clawbot search/",
+      "language_primary": "typescript",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "clawhub customer hunter",
+      "path": "J:/clawhub customer hunter/",
+      "language_primary": "typescript",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# HANDOFF — Clawhub Customer Hunter\n\n## Last Updated\n2026-04-25\n\n## Project Status\n🟢 RANV pitchkit shipped, OpenClaw fleet flipped to Anthropic with proper tier mapping\n\n## What Was Done This Session\n",
+      "milestones_hit": [
+        "4-25  ## Project Status 🟢 RANV pitchkit shipped, OpenClaw fleet flipped to Anthropic with proper tier mappi",
+        "everything  **Deployment to cnc-server (LIVE):** - Slurped pixie's OAuth creds from `/var/lib/docker/vol"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "distcc for claw project",
+      "path": "J:/distcc for claw project/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 12,
+      "handoff_excerpt": "# HANDOFF — distcc for claw project\n\n## Last Updated\n2026-05-02\n\n## Project Status\n🟢 OpenClaw fleet working end-to-end on cnc-server: gateway on Opus 4.7 OAuth, 9 subagents wired, tiered memory live, ",
+      "milestones_hit": [
+        "5-flash` → `anthropic/claude-opus-4-7`. Live verified with `infer model run`.  ### Subagents - Created `",
+        "OAuth, 9 subagents wired, tiered memory live, autostart on boot. Stack survived a full power cycle today"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "exploitpipe",
+      "path": "J:/exploitpipe/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 31,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 15301,
+      "handoff_excerpt": "# HANDOFF.md — exploitpipe\n\n## Last Updated\n2026-05-10 (evening) — **Plan 1a delivered + Plan 1b spec written.** 32 commits on private remote.\n\n## Project Status\n🟢 **Plan 1a delivered.** Foundation ph",
+      "milestones_hit": [
+        "**Plan 1a (foundation) — all 12 tasks shipped (Tasks 1-12 / D-01..D-03 + H-00, H-06..H-14, H-11):** - Bra",
+        "around `log_scan_and_check`. Plan 1b's live harness is the natural place to harden this since the /buil",
+        "cross the workspace.  **Not started** - Live agentic /build cycle (Plan 1b — H-01..H-05 components + H-1",
+        "cs/superpowers/specs/2026-05-10-plan-1b-live-harness-design.md` (commit `5792c4d`). - 6 items: H-01 trac",
+        "cs/superpowers/specs/2026-05-10-plan-1b-live-harness-design.md`). The brainstorm + spec are done; only t",
+        "cs/superpowers/specs/2026-05-10-plan-1b-live-harness-design.md`. - **Run-id format:** `YYYYMMDD-HHMM-<sh",
+        "in `docs/decisions/` - Pre-commit hook live: private-remote check (PRIVATE confirmed) + WARN-on-missing",
+        "n + committed:** - Brainstormed Plan 1b live-harness design via superpowers skill. Spec at `docs/superpo"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "flightsuite",
+      "path": "J:/flightsuite/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# HANDOFF — flightsuite\n\n## 2026-05-02 — clean-room provenance honesty checkpoint\n\n**Project Status:** unchanged (🟢 scaffolding live); this entry is a documentation correction, no code touched.\n\n### W",
+      "milestones_hit": [
+        "-04-24  ## Project Status 🟢 Scaffolding live. Workspace compiles, tests pass, repo is private on GitHub.",
+        "ject Status:** unchanged (🟢 scaffolding live); this entry is a documentation correction, no code touched",
+        "t at audit time — Ghidra had never been launched). - Hubris is referenced as an architectural exemplar (line"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "flir",
+      "path": "J:/flir/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# HANDOFF.md — blackbody\n\nThis document is written for a fresh Claude Code session picking up where the initial scaffolding session left off. Read **CLAUDE.md**, **CLEANROOM.md**, and **LEGAL.md** bef",
+      "milestones_hit": [
+        "# Blocking Issues  None. P1 (Lepton 2.5 live against PureThermal 3) is **validated and deploy-ready**.",
+        "- `bb-viewer` (egui skeleton exists; no live frame display). - `bb-drivers-flir` (driver wrapper around",
+        "-processing (since 2026-04-18) and as a live display (this session).  ### What Was Done This Session  Se",
+        "2026-04-19. Post-processing pipeline + live viewer both operational. Simon's `44a8c0b` still unreviewed",
+        "6-04-18-pt3-windows-capture.md` are all closed/resolved. 7. **Content-equality dedup.** First attempt (ts-",
+        "What Was Done This Session  Second push landed after the Day 1 handoff. Simon was AFK; PT3 on the shelf co",
+        "` does not exist. Ghidra has never been launched on kokonoe (this directory is auto-created on first run). -",
+        "` template instantiations. 4. **Wire-up live capture for the InfiRay P2 Pro** as the first non-FLIR core"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "github SME",
+      "path": "J:/github SME/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "# HANDOFF.md — Course Review Agent Pipeline\n\n## Last Updated\n2026-03-29\n\n## Project Status\n🟡 SCAFFOLDING — Skill designed, architecture defined, awaiting first course package from client\n\n## Assigned ",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "icognito cad tool",
+      "path": "J:/icognito cad tool/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 15,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 23046,
+      "handoff_excerpt": "# HANDOFF.md — Incognito CAD Tool (Rust)\n\n## Last Updated\n2026-05-10 (handoff written end-of-session by Claude Code CLI / Opus 4.7)\n\n## Project Status\n🟡 **In progress.** v1.0 ship zip is built and tes",
+      "milestones_hit": [
+        ") or an earlier file?   - Was LightBurn closed and reopened to defeat any file cache?   - What X/Y does Li",
+        "This Session Massive sprint. 7 commits landed across LightBurn format, STEP parser, docs, installer, and"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "lattice",
+      "path": "J:/lattice/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 95,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 69943,
+      "handoff_excerpt": "",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "llama-unrestricted",
+      "path": "J:/llama-unrestricted/",
+      "language_primary": "unknown",
+      "commits_today": 0,
+      "commits_this_week": 5,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 10,
+      "handoff_excerpt": "",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "llm-wiki",
+      "path": "J:/llm-wiki/",
+      "language_primary": "unknown",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 58407,
+      "handoff_excerpt": "",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "moltbook-cli",
+      "path": "J:/moltbook-cli/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 4,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 4898,
+      "handoff_excerpt": "# moltbook-cli HANDOFF\n\n## Last Updated\n2026-05-10\n\n## Project Status\n🟢 Working — autonomous Rust agent live on Moltbook, posting + replying + monitoring every 30 min via cnc systemd timer\n\n## What Wa",
+      "milestones_hit": [
+        "reciprocity_state.json`.  **Subcommands shipped** (in addition to the existing status / posts / unreplied /",
+        "ry at `/usr/local/bin/mb-bookworm`  ### Live results from today - karma 58 → 60 (+2 from natural tractio",
+        "tatus 🟢 Working — autonomous Rust agent live on Moltbook, posting + replying + monitoring every 30 min v"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "nightdrive",
+      "path": "J:/nightdrive/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 3,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 17729,
+      "handoff_excerpt": "# nightdrive — Autonomous Synthwave Generation & Publishing Pipeline\n\n**Project:** `nightdrive`\n**Owner:** Matt Gates / Ridge Cell Repair LLC / OpenClaw\n**Status:** SCAFFOLD — vision locked, no code w",
+      "milestones_hit": [
+        "*Update — N4.1 (per-stage retry policy) shipped same session 2026-05-10:** - `crates/nightdrive-core/src/re",
+        ".  **Update — N1.10 (youtube hardening) shipped same session 2026-05-10:** - `crates/nightdrive-youtube/src",
+        "11 = ~5 days = one VOD-per-day pipeline live. Visuals at this stage can be a static cover art + waveform",
+        "4 stages:0,1,7`.  **Update — N1.7 (art) shipped same session 2026-05-10:** - `crates/nightdrive-art/src/lib",
+        "EDGER.md` now has 10 real rows from the live YouTube uploads (7 stage rows for track #1 SAO, 1 pipeline_",
+        "Tube upload with custom thumbnail - NWS live data pull + KAMX/KOKX/KVTX/KAMX radar GIF download per trac",
+        "box into a published YouTube video (or live RTMP stream) of original synthwave / \"coding chill / nightt",
+        "coped, bench-row, storage wired, resume shipped  Worked through HANDOFF §18's \"What's Next\" punch list in o"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "openclaw model load optimizer",
+      "path": "J:/openclaw model load optimizer/",
+      "language_primary": "unknown",
+      "commits_today": 0,
+      "commits_this_week": 5,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 10,
+      "handoff_excerpt": "# HANDOFF.md — OpenClaw Model Load Optimizer\n\n## Last Updated: 2026-04-16\n## Project Status: 🟡 Code complete, awaiting P100 deployment\n\n## Context\n\nTwo OpenClaw plugins (`model-load-optimizer` + `usag",
+      "milestones_hit": [
+        ".png`, `dashboard-live.png`, `dashboard-live-data.png`, `dashboard-with-tour.png`, `login-page.png`, `wi",
+        "del-load-optimizer/dashboard` — confirm live GPU metrics, model status - [ ] Hit `/plugins/usage-limiter",
+        "ot) - `dashboard-clean.png`, `dashboard-live.png`, `dashboard-live-data.png`, `dashboard-with-tour.png`,"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "pledgeandcrowns",
+      "path": "J:/pledgeandcrowns/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 5,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 10,
+      "handoff_excerpt": "# HANDOFF.md\n\n## Last Updated\n2026-05-03 (session 2, third pass) — full v1 roadmap shipped end-to-end including the audio score: curriculum gating, wasm rendering fix, wasm save persistence (file + lo",
+      "milestones_hit": [
+        "closed non-blocking polish; third pass landed the audio score and surgical prompt-iteration tooling.  ###",
+        "ession 2, third pass) — full v1 roadmap shipped end-to-end including the audio score: curriculum gating, wa",
+        "synthwave-gen pipeline + 6 baked tracks live in repo**, multi-GPU fanout dispatcher ready for the inboun",
+        "v1 functional completeness; second pass closed non-blocking polish; third pass landed the audio score and",
+        "with strict-linear curriculum gating. - Live HTTP round-trip game ↔ axum compile-API on `127.0.0.1:7878`"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "visionsystem",
+      "path": "J:/visionsystem/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 7,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 1798,
+      "handoff_excerpt": "# visionsystem — HANDOFF\n\n**Last touched:** 2026-05-10 (history rewrite to ship code to GitHub + gait-status reckoning)\n**Owner this session:** Matt + lead-eng Claude\n\n## Round 15.3 — 2026-05-10 (hist",
+      "milestones_hit": [
+        "(+BootstrapEnroll subcommand) ```  ### Live measurements (post-bootstrap)  ``` enrollment_n   200    (w",
+        "- `POST /api/ingest/events` — array of closed activity intervals.   - `POST /api/ingest/observations` — p",
+        "-1/2 wins from Round 14's \"what's next\" landed as code. Build clean, 49/49 lib tests still green. **No liv",
+        "-repo, model binaries removed] ```  ### Live measurements  ``` .git size              5.8 MB (was ~700 M",
+        ".30–0.50, and we want them tracked. - **Live verification (2026-05-03):** 3 consecutive observations of",
+        ".`. - Split is bandwidth-friendly: only closed `ActivityEvent` rows cross the   link, never frame jpegs.",
+        "/ 6h / 24h / 7d.   - Header line shows live presence% and intake count from     `/api/presence` and `/a",
+        "11 add-ons (flightsuite split + RTMPose live)  ### Architectural split: public flightsuite vs private ov"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "wages of war",
+      "path": "J:/wages of war/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 5,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 10,
+      "handoff_excerpt": "# HANDOFF.md — Open Wages → Claude Code Session\n\n## 2026-05-03 — wall structure decoded, wall-rendering pass landed\n\n**Last Updated:** 2026-05-03\n**Project Status:** 🟡 wall data is now extracted from ",
+      "milestones_hit": [
+        "structure decoded, wall-rendering pass landed  **Last Updated:** 2026-05-03 **Project Status:** 🟡 wall da"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "world-mode",
+      "path": "J:/world-mode/",
+      "language_primary": "rust",
+      "commits_today": 0,
+      "commits_this_week": 5,
+      "lines_changed_today": 0,
+      "lines_changed_this_week": 10,
+      "handoff_excerpt": "# World Mode Handoff — 2026-03-30\n\n## Session Summary\nMassive ghost placement grind session. Started at ~42,409 ghosts, got down to ~24,797 confirmed (possibly lower — last 50 loops ran but output par",
+      "milestones_hit": [],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar connector available in this session — fields null."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar connector available in this session — fields null."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar connector available in this session — fields null."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar connector available in this session — fields null."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar connector available in this session — fields null."
+    }
+  ],
+  "strategic_events": [],
+  "kalshi_pnl_usd": null,
+  "notes": "Health harvest intentionally omitted — iOS app handles HealthKit on-device. Client fields null: no Gmail/Calendar connector in this kokonoe session."
+}
