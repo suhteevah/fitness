@@ -1,0 +1,178 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-15",
+  "captured_at": "2026-05-15T22:55:51-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts. Next: chip-variant-specific init (Linux r8169-style CPlusCmd + Config regs).",
+      "milestones_hit": ["RTL8168 driver init sequence implemented", "Ethernet link up at 1000M on real hardware"],
+      "blockers": ["RTL8168 RX path delivers zero frames — chip-variant-specific init needed"]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 5,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 10,
+      "handoff_excerpt": "Hosted Corpo API live at https://wraith-browser.vercel.app (Vercel TLS-proxied) and http://207.244.232.227:8080 (direct). Open AGPL repo + proprietary api-server tier both deploying clean. Growth-prep artifacts staged. FR queue cleared except FR-4 (waiting on ClaudioOS).",
+      "milestones_hit": ["Hosted Corpo API launched", "Vercel TLS proxy live", "JWT auth flow verified end-to-end"],
+      "blockers": ["Free hostname for Caddy/TLS not picked — WSS still needs real TLS on VPS", "FR-4 cross-repo work blocked on ClaudioOS session"]
+    },
+    {
+      "name": "Kalshi Trader v7",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 13,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 1697,
+      "handoff_excerpt": "No HANDOFF.md present. Recent commits: brain v3 audit + identity #2 + NBA boxscore #3, NBA boxscore+lineup ingestion fills mig 043 tables, cross-source identity population (Kalshi MLB suffix resolver + Polymarket .us slug + NBA bdl backfills), NBA scraper hardening (UA, Referer/Origin headers, plusMinusPoints f64 fix).",
+      "milestones_hit": ["NBA boxscore + lineup ingestion shipped", "Brain v3 audit complete", "Cross-source identity resolver shipped"],
+      "blockers": []
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 1,
+      "commits_this_week": 5,
+      "lines_changed_today": 1965,
+      "lines_changed_this_week": 19690,
+      "handoff_excerpt": "X Jobs pipeline live, SpaceX playbook live, orchestrator running 4 boards (upwork_email, greenhouse, ashby, lever, xjobs). ~5,746 applications submitted, ~33,000+ jobs tracked. SNIPER MODE — max 5-10/day, hand-curated. Upwork primary channel, 18 connects remaining.",
+      "milestones_hit": ["X Jobs scraper launched as 5th orchestrator board", "SpaceX playbook shipped"],
+      "blockers": ["X Jobs URLs are synthetic — needs lazy-click apply-URL extraction", "Upwork connects low at 18"]
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "typescript",
+      "commits_today": 1,
+      "commits_this_week": 6,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 630,
+      "handoff_excerpt": "Healthy. 7 production deploys this session, all Ready. CNC scraper redeployed and running clean (793 tweets/run). All pre-existing audit-harness greens still green. Tweet rendering hardened: note-tweet bodies, lazy reply/quote parents with media, dynamic queryId derivation, OpenSky OAuth.",
+      "milestones_hit": ["7 production deploys shipped", "Tweet rendering bugs root-cause fixed", "OpenSky OAuth integration shipped", "Dynamic X queryId derivation shipped"],
+      "blockers": []
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 2253,
+      "handoff_excerpt": "App running on iPhone 17 Pro Max + 8.5 yrs HealthKit history bundled (2,498,115 records, daily/weekly/monthly JSON rollups). Revenue tab pulls bank-feed transactions across All Orgs with 7/30/90/365d picker. Meal recommender has 32 templates incl. carb-tolerant post-strength refeeds.",
+      "milestones_hit": ["8.5 yrs HealthKit history ingested + bundled", "App launches clean on iPhone 17 Pro Max", "Revenue tab Abacus bank-feed integration shipped", "32 meal templates with post-strength refeed gating"],
+      "blockers": []
+    },
+    {
+      "name": "Aether",
+      "path": "/j/aether/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 21,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Active repo with 21 commits this week. HANDOFF.md present but not deep-read this routine.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Antcolony",
+      "path": "/j/antcolony/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 40,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Most active repo this week with 40 commits. HANDOFF.md present but not deep-read this routine.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Exploitpipe",
+      "path": "/j/exploitpipe/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 33,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Active repo with 33 commits this week. HANDOFF.md present but not deep-read this routine.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Incognito CAD Tool",
+      "path": "/j/icognito cad tool/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 15,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Active repo with 15 commits this week. Related to Incognito Acquisitions client work. HANDOFF.md present but not deep-read this routine.",
+      "milestones_hit": [],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": "Seth Barone",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec. Note: /j/icognito cad tool/ has 15 commits this week, suggesting active CAD work."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": "Cory Sturgis",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec."
+    }
+  ],
+  "strategic_events": [],
+  "kalshi_pnl_usd": null,
+  "notes": "Today's commits are dominated by 'Initial commit - uploaded via github-uploader-buildout' across many repos — automated upload activity, not net-new development. Real recent development is captured via HANDOFFs (latest 2026-05-02 through 2026-05-11). No strategic events on 2026-05-15. Client contact metrics null because Gmail/Calendar connectors are not available from the Claude Code CLI session on kokonoe — Matt's iOS app handles those connectors natively."
+}
