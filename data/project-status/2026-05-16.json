@@ -1,0 +1,253 @@
+{
+  "schema": "project-status.v1",
+  "date": "2026-05-16",
+  "captured_at": "2026-05-16T22:57:55-07:00",
+  "source": "claude-routine-v1-projectonly",
+  "projects": [
+    {
+      "name": "ClaudioOS",
+      "path": "/j/baremetal claude/",
+      "language_primary": "rust",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 14,
+      "handoff_excerpt": "RTL8168 wired-ethernet driver runs on real HW. Link up at 1000M, TX works, RX blocked. DHCP times out because chip fires zero RX interrupts. Next: chip-variant-specific init (Linux r8169-style CPlusCmd + Config regs). (HANDOFF dated 2026-04-19, no fresh entry today.)",
+      "milestones_hit": [],
+      "blockers": ["RTL8168 RX path delivers zero frames — chip-variant-specific init still needed (carry-forward from 2026-04-19)"]
+    },
+    {
+      "name": "Wraith Browser",
+      "path": "/j/wraith-browser/",
+      "language_primary": "rust",
+      "commits_today": 6,
+      "commits_this_week": 11,
+      "lines_changed_today": 2089,
+      "lines_changed_this_week": 2099,
+      "handoff_excerpt": "BR-6 + BR-7 + BR-8 + BR-9 all shipped — react-select dropdowns commit, browse_fill propagates to React state, reCAPTCHA v3 unblocked via cdp-attach (new engine_type that attaches to operator's daily Chrome on --remote-debugging-port=9222). Fresh binary at target/release/wraith-browser.exe (47 MB, mtime 9:33 AM). Open: BR-3 (PAT rotation, Matt-action), FR-4 (ClaudioOS bridge).",
+      "milestones_hit": [
+        "BR-6 react-select dropdowns fixed (real CDP Input.dispatchMouseEvent)",
+        "BR-7 browse_navigate session-hijack root cause fixed",
+        "BR-8 browse_fill rewritten to use CDP Input.insertText (propagates to React state)",
+        "BR-9 reCAPTCHA v3 unblocked via cdp-attach engine + 2captcha fallback retained",
+        "cdp-attach engine variant shipped — attaches to operator's daily Chrome",
+        "E2E smoke against real Anthropic Greenhouse application passed"
+      ],
+      "blockers": [
+        "Free hostname for Caddy/TLS not picked — WSS still needs real TLS on VPS",
+        "FR-4 ClaudioOS bridge — Wraith side ready, ClaudioOS session needed",
+        "BR-3 PAT rotation pending — Matt-action only"
+      ]
+    },
+    {
+      "name": "Kalshi Trader v7",
+      "path": "/j/kalshi-trader-v7/",
+      "language_primary": "rust",
+      "commits_today": 6,
+      "commits_this_week": 19,
+      "lines_changed_today": 608,
+      "lines_changed_this_week": 2304,
+      "handoff_excerpt": "🟢 Brain v3 → shadow_trades join is now wired. Single highest-leverage item from the 2026-05-12 handoff is done. Engine builds clean, all shadow tests pass. Not yet deployed to VPS. Afternoon spillover: scalper audit + four fixes shipped (fee formula correction, PnL fee accounting, exit_trigger instrumentation, migration 046).",
+      "milestones_hit": [
+        "Shadow stitcher shipped — backfills proposal_id onto shadow_trades, unblocks brain v3 win-rate SQL join",
+        "Migration 045: idx_llm_proposals_opportunity_id (prevents subquery full-scan)",
+        "Scalper fee formula corrected",
+        "Scalper PnL fee accounting fixed",
+        "Scalper exit_trigger instrumentation added (mig 046)",
+        "8/8 shadow tests pass; engine builds clean"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Job Hunter MCP",
+      "path": "/j/job-hunter-mcp/",
+      "language_primary": "python",
+      "commits_today": 3,
+      "commits_this_week": 9,
+      "lines_changed_today": 23809,
+      "lines_changed_this_week": 23821,
+      "handoff_excerpt": "🟡 Anthropic Fellows AI Safety (Perez workstream) packet drafted + Constellation submit started; PAUSED waiting on third reference (Jesse, active mil 35T). Earlier today: Anthropic SWE Systems Claude Code application SUBMITTED — first real Anthropic application + first non-Upwork lead since orchestrator revival. Scorer retune fixed bullseye-keyword blindness — 38,439 jobs rescored, 989 newly ≥95.",
+      "milestones_hit": [
+        "Anthropic SWE Systems Claude Code application SUBMITTED (top bullseye, comp band $320-485K)",
+        "Anthropic Fellows AI Safety packet drafted (Perez mentor track, OpenClaw red team as lead artifact)",
+        "Scorer retune shipped — bullseye keywords added (claude/anthropic/openclaw/wraith/mcp), 38,439 jobs rescored",
+        "989 jobs newly ≥95 score; 7 bullseyes + 54 adjacent surfaced",
+        "SpaceX playbook shipped (Tier 1 industrial automation, Sunnyvale CA + Bastrop TX)"
+      ],
+      "blockers": [
+        "Anthropic Fellows submit PAUSED — third reference (Jesse, active US Army 35T) pending contact info",
+        "Airtable resume upload blocked — widget is role=button div, not real input[type=file]; Matt manual drag required",
+        "X Jobs URLs still synthetic — needs lazy-click apply-URL extraction (carry-forward)",
+        "Upwork connects low at 18 (carry-forward)"
+      ]
+    },
+    {
+      "name": "The Right Wire",
+      "path": "/j/political news app/",
+      "language_primary": "typescript",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 2,
+      "lines_changed_this_week": 1288,
+      "handoff_excerpt": "🟢 Healthy. 7 production deploys this session (2026-05-10), all Ready. CNC scraper redeployed and running clean (793 tweets/run). Tweet rendering hardened: note-tweet bodies, lazy reply/quote parents, dynamic queryId, OpenSky OAuth. (HANDOFF dated 2026-05-10; today's commit is automated github-uploader-buildout README push.)",
+      "milestones_hit": [],
+      "blockers": [
+        "Vercel-side X scrape blocked (guest-token activation 429 from datacenter IPs) — CNC residential carries firehose (carry-forward)"
+      ]
+    },
+    {
+      "name": "PerformanceTracker",
+      "path": "/j/fitness/",
+      "language_primary": "swift",
+      "commits_today": 1,
+      "commits_this_week": 7,
+      "lines_changed_today": 180,
+      "lines_changed_this_week": 1609,
+      "handoff_excerpt": "App running on iPhone 17 Pro Max + 8.5 yrs HealthKit history bundled (2,498,115 records, daily/weekly/monthly JSON rollups). Revenue tab pulls bank-feed transactions across All Orgs. 32 meal templates incl. carb-tolerant post-strength refeeds. (HANDOFF dated 2026-05-09; today's commit is automated github-uploader-buildout pushing yesterday's harvest JSON.)",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Antcolony",
+      "path": "/j/antcolony/",
+      "language_primary": "unknown",
+      "commits_today": 2,
+      "commits_this_week": 36,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Active repo with 36 commits this week. Today: species food_storage_cap recalibrated to verifier year-2 ceiling. HANDOFF.md not deep-read this routine.",
+      "milestones_hit": ["Species food_storage_cap recalibrated"],
+      "blockers": []
+    },
+    {
+      "name": "Exploitpipe",
+      "path": "/j/exploitpipe/",
+      "language_primary": "unknown",
+      "commits_today": 24,
+      "commits_this_week": 48,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Heavy harness work today — H-01 through H-12 roadmap items in flight. Today's commits include: H-12 self-test attempt 2 COMPLETED (B-01 + B-02 resolved), Z-01 live H-12 self-test + auditor --roadmap unblock, Plan-1b shipped (6 APPROVE-DETERMINISTIC items), H-05 honesty-auditor subagent, H-02 witness-test-author subagent, H-04 coverage-matrix subcommand, H-03 bench-runner subcommand, H-01 exploitpipe-harness tracker binary.",
+      "milestones_hit": [
+        "H-12 self-test Attempt 2 COMPLETED (B-01 + B-02 resolved)",
+        "Z-01 live H-12 self-test + auditor --roadmap unblock",
+        "Plan-1b shipped (6 APPROVE-DETERMINISTIC items)",
+        "H-05 honesty-auditor subagent definition",
+        "H-04 coverage-matrix subcommand shipped",
+        "H-03 bench-runner subcommand + BenchBudget in budget_guard",
+        "H-01 exploitpipe-harness binary scaffolded + tracker implemented"
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Incognito CAD Tool",
+      "path": "/j/icognito cad tool/",
+      "language_primary": "unknown",
+      "commits_today": 1,
+      "commits_this_week": 8,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Active repo, 8 commits this week. Today: automated github-uploader-buildout initial push. Related to Incognito Acquisitions client work.",
+      "milestones_hit": [],
+      "blockers": []
+    },
+    {
+      "name": "Aether",
+      "path": "/j/aether/",
+      "language_primary": "unknown",
+      "commits_today": null,
+      "commits_this_week": null,
+      "lines_changed_today": null,
+      "lines_changed_this_week": null,
+      "handoff_excerpt": "Git query blocked by a local shell hook (lean-ctx wrapper) every attempt today. Last snapshot (2026-05-15) listed 21 commits this week. Data unavailable this routine.",
+      "milestones_hit": [],
+      "blockers": []
+    }
+  ],
+  "clients": [
+    {
+      "name": "Incognito Acquisitions",
+      "contact": "Seth Barone",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec. Note: /j/icognito cad tool/ has 8 commits this week, suggesting active CAD work continues."
+    },
+    {
+      "name": "First Choice Plastics",
+      "contact": "Cory Sturgis",
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec."
+    },
+    {
+      "name": "Midnight Munitions",
+      "contact": "Christian Anderson",
+      "last_deliverable_date": null,
+      "last_contact_date": "2026-05-16",
+      "days_since_contact": 0,
+      "invoice_total_this_period_usd": null,
+      "status_note": "Christian Anderson confirmed today as Aether SBIR Co-Investigator + job-hunter reference 2 of 3 (GPG-confirmed). No Gmail/Calendar telemetry but HANDOFF entry confirms same-day contact."
+    },
+    {
+      "name": "Halsey Bottling",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec."
+    },
+    {
+      "name": "Compac Engineering",
+      "contact": null,
+      "last_deliverable_date": null,
+      "last_contact_date": null,
+      "days_since_contact": null,
+      "invoice_total_this_period_usd": null,
+      "status_note": "No Gmail/Calendar access from kokonoe CLI session — fields null per spec."
+    }
+  ],
+  "strategic_events": [
+    {
+      "date": "2026-05-16",
+      "type": "milestone",
+      "detail": "Anthropic SWE Systems Claude Code application SUBMITTED — first real Anthropic application, first non-Upwork lead since orchestrator revival. Comp band $320-485K. 14-day follow-up 2026-05-30."
+    },
+    {
+      "date": "2026-05-16",
+      "type": "milestone",
+      "detail": "Anthropic Fellows AI Safety (Perez mentor track) packet drafted, Constellation Airtable submit started — PAUSED on third reference (Jesse, active US Army 35T)."
+    },
+    {
+      "date": "2026-05-16",
+      "type": "milestone",
+      "detail": "Wraith Browser BR-6/7/8/9 all shipped in one session — cdp-attach engine_type added (attaches to operator's daily Chrome at --remote-debugging-port=9222), unblocks reCAPTCHA v3-protected forms (Greenhouse, Lever, Ashby)."
+    },
+    {
+      "date": "2026-05-16",
+      "type": "milestone",
+      "detail": "Kalshi shadow stitcher shipped — backfills proposal_id onto shadow_trades, unblocks brain v3 yes win-rate measurement that has been blocked since 2026-05-12 handoff."
+    },
+    {
+      "date": "2026-05-16",
+      "type": "milestone",
+      "detail": "Kalshi scalper audit shipped 4 fixes — fee formula correction, PnL fee accounting, exit_trigger instrumentation, migration 046."
+    },
+    {
+      "date": "2026-05-16",
+      "type": "milestone",
+      "detail": "Job-hunter scorer retune — bullseye keyword set added (claude/anthropic/openclaw/wraith/mcp), 38,439 jobs rescored, 989 newly ≥95, 7 bullseyes + 54 adjacent surfaced."
+    },
+    {
+      "date": "2026-05-16",
+      "type": "milestone",
+      "detail": "Exploitpipe H-12 self-test Attempt 2 COMPLETED + Plan-1b's 6 APPROVE-DETERMINISTIC items shipped (24 commits today, 48 this week)."
+    }
+  ],
+  "kalshi_pnl_usd": null,
+  "notes": "Heaviest dev day this week. JobHunter LOC dominated by application packet artifacts (.pipeline/applications/* + reports/* + shortlist archives — 23,809 lines today) plus the scorer retune. Wraith's 2,089 LOC today is real Rust crate work (engine_cdp.rs + mcp-server/server.rs + tools.rs + HANDOFF + NEXT-UP). Kalshi 608 LOC is shadow stitcher + scalper fixes + 3 HANDOFF entries. Aether git query blocked by a lean-ctx shell-hook every attempt — left null. Client contact metrics null because Gmail/Calendar connectors not available from kokonoe Claude Code CLI; Midnight Munitions same-day contact noted from JobHunter HANDOFF (Christian Anderson confirmed as Aether SBIR reference)."
+}
